@@ -4,19 +4,24 @@
 <DatePicker  type="month"></DatePicker>
 abc:{{abc}}
 <hr/>
+<ZPInput v-model="inputValue" />
+inputValue:{{inputValue}}
+<hr/>
 </div>
 </template>
 
 <script>
-import { DatePicker } from './common'
+import { DatePicker, Input as ZPInput } from './common'
 
 export default {
   components: {
-    DatePicker
+    DatePicker,
+    ZPInput
   },
   data() {
     return {
-      abc: new Date('2018-06-06')
+      abc: new Date('2018-06-06'),
+      inputValue:'inputValue'
     }
   },
 
