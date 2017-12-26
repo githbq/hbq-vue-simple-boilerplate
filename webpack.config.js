@@ -72,6 +72,10 @@ const config = {
         }
       },
       {
+        test: /iview.src.*?js$/,
+        loader: 'babel-loader'
+      },
+      {
         test: /\.js$/,
         use: 'babel-loader',
         exclude: /node_modules/
@@ -145,7 +149,7 @@ const config = {
       }
     },
     open: true,
-    openPage: 'user/login.html'
+    openPage: 'home.html'
   },
   devtool: '#eval-source-map'
 }

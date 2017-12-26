@@ -1,7 +1,7 @@
 <template>
   <div class="zpfe-iview-date-picker" :class="className">
     <DatePicker 
-    :value="selfValue"
+    v-model="selfValue"
     :confirm="confirm"
     :type="type"
     :placeholder="placeholder"
@@ -15,6 +15,7 @@
     >
     <slot></slot>
     </DatePicker>
+    selfValue:{{selfValue}}
   </div>
 </template>
 
@@ -22,14 +23,36 @@
 import DatePicker from 'iview/src/components/date-picker'
 export default {
   props: {
+    monthOnly: { default: true },
     confirm: { default: false },
     className: { default: '' },
     value: { default: Date.now() },
     type: { default: 'year' },
-    placeholder: { default: '选择年份' },
+    placeholder: {
+      default() {
+        let value = ''
+        switch (this.$props.type) {
+          case 'year': { value = '选择年份' } break
+          case 'month': { value = '选择月份' } break
+        }
+        return value
+      }
+    },
     style: { default: '' },
     placement: { default: 'bottom-start' },
-    format: { default: null }
+    format: {
+      default() {
+        let value = null
+        switch (this.$props.type) {
+          case 'month': {
+            if (this.$props.monthOnly) {
+              value = 'M'
+            }
+          } break
+        }
+        return value
+      }
+    }
   },
   data() {
     return {
@@ -49,6 +72,7 @@ export default {
   },
   methods: {
     onChange(newValue) {
+      debugger
       this.$emit('input', newValue)
       this.$emit.apply(this, ['on-change'].concat(arguments))
     },
