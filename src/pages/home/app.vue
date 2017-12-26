@@ -7,21 +7,51 @@ abc:{{abc}}
 <ZPInput v-model="inputValue" class="fffffffffff"/>
 inputValue:{{inputValue}}
 <hr/>
+<ZPSelect :multiple="true" key-field="value" v-model="selectValue" :data="items" />
+<hr/>
 </div>
 </template>
 
 <script>
-import { DatePicker, Input as ZPInput } from './common'
+import { Select as ZPSelect, DatePicker, Input as ZPInput } from './common'
 
 export default {
   components: {
     DatePicker,
-    ZPInput
+    ZPInput,
+    ZPSelect
   },
   data() {
     return {
       abc: new Date('2018-06-06'),
-      inputValue:'inputValue'
+      inputValue: 'inputValue',
+      selectValue: [],
+      items: [
+        {
+          value: 'New York',
+          label: 'New York'
+        },
+        {
+          value: 'London',
+          label: 'London'
+        },
+        {
+          value: 'Sydney',
+          label: 'Sydney'
+        },
+        {
+          value: 'Ottawa',
+          label: 'Ottawa'
+        },
+        {
+          value: 'Paris',
+          label: 'Paris'
+        },
+        {
+          value: 'Canberra',
+          label: 'Canberra'
+        }
+      ]
     }
   },
 
