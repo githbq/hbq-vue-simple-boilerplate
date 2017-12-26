@@ -4,6 +4,7 @@
 ```html
 <DatePicker v-model="yourValue" type="month"></DatePicker>
 <DatePicker v-model="yourValue"  type="year"></DatePicker>
+// 年与月一起先 使用type='month' 同时添加参数 month-only=false
 ```
 
 ```js
