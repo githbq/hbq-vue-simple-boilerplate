@@ -4,8 +4,7 @@
     v-model="selfValue"
     :confirm="confirm"
     :type="type"
-    :placeholder="placeholder"
-    :style="style"
+    :placeholder="placeholder" 
     :placement="placement"
     :format="format"
     @on-change="onChange"
@@ -36,8 +35,7 @@ export default {
         }
         return value
       }
-    },
-    style: { default: '' },
+    }, 
     placement: { default: 'bottom-start' },
     format: {
       default() {
