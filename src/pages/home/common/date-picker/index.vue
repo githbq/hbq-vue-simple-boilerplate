@@ -21,7 +21,7 @@ import DatePicker from 'iview/src/components/date-picker'
 export default {
   props: {
     monthOnly: { default: true },
-    confirm: { default: false }, 
+    confirm: { default: false },
     value: { default: null },
     type: { default: 'year' },
     placeholder: {
@@ -115,6 +115,9 @@ export default {
   }
   .ivu-input {
     border-radius: 0px;
+  }
+  .ivu-icon-ios-calendar-outline:before {
+    content: "\F123";
   }
 }
 </style>

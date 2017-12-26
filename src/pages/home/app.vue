@@ -4,7 +4,7 @@
 <DatePicker  type="month"></DatePicker>
 abc:{{abc}}
 <hr/>
-<ZPInput v-model="inputValue" />
+<ZPInput v-model="inputValue" class="fffffffffff"/>
 inputValue:{{inputValue}}
 <hr/>
 </div>
