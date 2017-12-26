@@ -1,13 +1,13 @@
-<template>
-  <div class="zpfe-iview-select" :class="className">
+<template> 
      <IViewSelect
+     class="zpfe-iview-select"
+      :class="className"
      v-model="selfValue"
      @on-change="onChange"
      @on-query-change="onQueryChange"
      :placeholder="placeholder">
        <Option v-for="item in data" :value="item[$props.valueField]" :key="item[$props.keyField]">{{ item[$props.labelField] }}</Option>
-     </IViewSelect>
-  </div>
+     </IViewSelect> 
 </template>
 
 <script>
@@ -26,14 +26,14 @@ export default {
     onQueryChange: { default: () => function () { } },
     onChange: { default: () => function () { } }
   },
-  data () {
+  data() {
     return { selfValue: '' }
   },
   watch: {
-    value (newValue) {
+    value(newValue) {
       this.$data.selfValue = newValue
     },
-    selfValue (newValue) {
+    selfValue(newValue) {
       this.$emit('input', newValue)
     }
   },
