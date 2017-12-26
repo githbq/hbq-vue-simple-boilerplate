@@ -70,8 +70,7 @@ export default {
     DatePicker
   },
   methods: {
-    onChange(newValue) {
-      debugger
+    onChange(newValue) { 
       this.$emit('input', newValue)
       this.$emit.apply(this, ['on-change'].concat(arguments))
     },
