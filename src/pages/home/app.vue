@@ -1,7 +1,7 @@
 <template>
 <div>
 <hr/>
-<DatePicker v-model="abc" type="month"></DatePicker>
+<DatePicker  type="month"></DatePicker>
 abc:{{abc}}
 <hr/>
 </div>

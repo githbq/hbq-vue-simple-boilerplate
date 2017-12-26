@@ -14,8 +14,7 @@
     @on-clear="onClear" 
     >
     <slot></slot>
-    </DatePicker>
-    selfValue:{{selfValue}}
+    </DatePicker> 
   </div>
 </template>
 
@@ -26,7 +25,7 @@ export default {
     monthOnly: { default: true },
     confirm: { default: false },
     className: { default: '' },
-    value: { default: Date.now() },
+    value: { default: null },
     type: { default: 'year' },
     placeholder: {
       default() {
