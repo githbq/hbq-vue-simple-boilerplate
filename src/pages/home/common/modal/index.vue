@@ -1,12 +1,11 @@
-<template>
-  <div class="zpfe-iview-modal" :class="className">
-    <Modal v-model="visible" :title="title" :closable="closable" :maskClosable="maskClosable" :scrollable="scrollable" :okText="okText" :cancelText="cancelText" :width="width" :styles="styles" class-name="zpfe" :transitionNames="transitionNames" :loading="loading" @on-ok="ok" @on-cancel="cancel" @on-visible-change="visibleChange">
+<template> 
+    <Modal class="zpfe-iview-modal" 
+     v-model="visible" :title="title" :closable="closable" :maskClosable="maskClosable" :scrollable="scrollable" :okText="okText" :cancelText="cancelText" :width="width" :styles="styles" class-name="zpfe" :transitionNames="transitionNames" :loading="loading" @on-ok="ok" @on-cancel="cancel" @on-visible-change="visibleChange">
       <slot></slot>
       <slot name="header"></slot>
       <slot name="footer"></slot>
       <slot name="close"></slot>
-    </Modal>
-  </div>
+    </Modal> 
 </template>
 
 <script>
@@ -22,8 +21,7 @@ export default {
     okText: { default: '确定' },
     cancelText: { default: '取消' },
     width: { default: 520 },
-    styles: { default: () => { } },
-    className: { default: 'zpfe' },
+    styles: { default: () => { } }, 
     transitionNames: { default: () => [] },
     transfer: { default: true }
   },

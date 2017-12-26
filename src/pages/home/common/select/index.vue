@@ -1,7 +1,6 @@
 <template> 
      <IViewSelect
-     class="zpfe-iview-select"
-      :class="className"
+     class="zpfe-iview-select" 
      v-model="selfValue"
      @on-change="onChange"
      @on-query-change="onQueryChange"
@@ -20,8 +19,7 @@ export default {
     placeholder: { default: '' },
     valueField: { default: 'value' },
     keyField: { default: 'key' },
-    labelField: { default: 'label' },
-    className: { default: '' },
+    labelField: { default: 'label' }, 
     onChange: { default: null },
     onQueryChange: { default: () => function () { } },
     onChange: { default: () => function () { } }

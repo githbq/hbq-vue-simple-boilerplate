@@ -1,6 +1,6 @@
-<template>
-  <div class="zpfe-iview-cropper" :class="className">
+<template> 
     <vue-cropper
+        class="zpfe-iview-cropper" 
         ref="cropper"
         :guides="guides"
         :view-mode="viewMode"
@@ -16,8 +16,7 @@
         :auto-crop="autoCrop"
         :highlight="highlight"
         >
-    </vue-cropper>
-  </div>
+    </vue-cropper> 
 </template>
 
 <script>
@@ -38,8 +37,7 @@ export default {
     // 图片样式
     imgStyle: {
       default: () => { return { width: '500px', height: '500px' } }
-    },
-    className: { default: null },
+    }, 
     autoCrop: { default: true },
     alt: { default: '源图片' },
     highlight: { default: false },
@@ -49,7 +47,7 @@ export default {
     VueCropper
   },
   watch: {
-    imgSrc (newValue) {
+    imgSrc(newValue) {
       if (newValue) {
         this.$refs.cropper.replace(newValue)
         this.$emit('on-img-load', this.getImgBase64())
@@ -57,10 +55,10 @@ export default {
     }
   },
   methods: {
-    getImgBase64 () {
+    getImgBase64() {
       return this.$refs.cropper.getCroppedCanvas().toDataURL()
     },
-    rotate (deg = 90) {
+    rotate(deg = 90) {
       this.$refs.cropper.rotate(deg);
     }
   }

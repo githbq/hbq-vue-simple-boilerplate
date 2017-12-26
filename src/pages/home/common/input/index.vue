@@ -1,5 +1,6 @@
 <template> 
-    <IViewInput class="zpfe-iview-input" :class="className" ref="input" 
+    <IViewInput class="zpfe-iview-input"
+     ref="input" 
     v-model="selfValue" 
     :type="type" 
     :rows="rows" 
@@ -29,8 +30,7 @@ export default {
     placeholder: { default: '' },
     value: { default: undefined },
     type: { default: undefined },
-    rows: { default: undefined },
-    className: { default: '' },
+    rows: { default: undefined }, 
     autofocus: { default: false },
     readonly: { default: false },
     disabled: { default: false },

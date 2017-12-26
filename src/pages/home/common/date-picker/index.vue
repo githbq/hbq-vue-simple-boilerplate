@@ -1,6 +1,6 @@
-<template>
-  <div class="zpfe-iview-date-picker" :class="className">
+<template> 
     <DatePicker 
+    class="zpfe-iview-date-picker" 
     v-model="selfValue"
     :confirm="confirm"
     :type="type"
@@ -13,8 +13,7 @@
     @on-clear="onClear" 
     >
     <slot></slot>
-    </DatePicker> 
-  </div>
+    </DatePicker>  
 </template>
 
 <script>
@@ -22,8 +21,7 @@ import DatePicker from 'iview/src/components/date-picker'
 export default {
   props: {
     monthOnly: { default: true },
-    confirm: { default: false },
-    className: { default: '' },
+    confirm: { default: false }, 
     value: { default: null },
     type: { default: 'year' },
     placeholder: {
@@ -35,7 +33,7 @@ export default {
         }
         return value
       }
-    }, 
+    },
     placement: { default: 'bottom-start' },
     format: {
       default() {
@@ -68,7 +66,7 @@ export default {
     DatePicker
   },
   methods: {
-    onChange(newValue) { 
+    onChange(newValue) {
       this.$emit('input', newValue)
       this.$emit.apply(this, ['on-change'].concat(arguments))
     },

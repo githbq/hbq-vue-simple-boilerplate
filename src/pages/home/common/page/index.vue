@@ -1,5 +1,5 @@
 <template>
-  <div class="zpfe-iview-page" :class="className" >
+  <div class="zpfe-iview-page">
     <Page
       class-name="zpfe"
       :total="total"
@@ -38,8 +38,7 @@ export default {
     showTotal: { default: false },
     // 此属性不能使用
     showElevator: { default: false },
-    showSizer: { default: false },
-    className: { default: 'right' },
+    showSizer: { default: false }, 
     styles: { default: () => { } }
   },
   data () {
