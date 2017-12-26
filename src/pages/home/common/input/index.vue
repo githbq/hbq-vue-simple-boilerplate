@@ -1,6 +1,5 @@
-<template>
-  <div class="zpfe-iview-input" :class="className">
-    <IViewInput ref="input" 
+<template> 
+    <IViewInput class="zpfe-iview-input" :class="className" ref="input" 
     v-model="selfValue" 
     :type="type" 
     :rows="rows" 
@@ -20,8 +19,7 @@
     >
     <slot name="prepend"></slot>
     <slot name="append"></slot>
-    </IViewInput>
-  </div>
+    </IViewInput> 
 </template>
 
 <script>
