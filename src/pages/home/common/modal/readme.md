@@ -6,13 +6,11 @@
 import page from 'components/common/modal.vue'
 // .
 // .
-// .
-methods:{
+// . 
  data() {
     return {
       showModal: false
-    }
-  },
+} 
 // .
 // .
 // .
