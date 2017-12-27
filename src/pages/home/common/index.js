@@ -18,5 +18,7 @@ import DatePicker from './date-picker'
 import Input from './input'
 // 下拉列表组件
 import Select from './select'
+// 下拉列表组件
+import Checkbox from './checkbox'
 // 导出
-export { Modal, Page, Cropper, DatePicker, Input, Select }
+export { Checkbox, Modal, Page, Cropper, DatePicker, Input, Select }

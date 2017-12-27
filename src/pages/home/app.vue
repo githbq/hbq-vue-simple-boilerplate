@@ -1,13 +1,13 @@
 <template>
 <div>
 <hr/>
-<DatePicker  type="month"></DatePicker>
+<DatePicker v-model="abc" type="month"></DatePicker>
 abc:{{abc}}
 <hr/>
 <ZPInput v-model="inputValue" class="fffffffffff"/>
 inputValue:{{inputValue}}
 <hr/>
-<ZPSelect :multiple="true" key-field="value" v-model="selectValue" :data="items" />
+<ZPSelect :multiple="false" key-field="value" v-model="selectValue" :data="items" />
 <hr/>
 </div>
 </template>
@@ -23,9 +23,9 @@ export default {
   },
   data() {
     return {
-      abc: new Date('2018-06-06'),
+      abc: 1441036800000,
       inputValue: 'inputValue',
-      selectValue: [],
+      selectValue: 'New York',
       items: [
         {
           value: 'New York',

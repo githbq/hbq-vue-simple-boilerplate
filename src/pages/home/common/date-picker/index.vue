@@ -50,8 +50,12 @@ export default {
     }
   },
   data() {
+    let selfValue = this.$props.value
+    if (typeof selfValue === 'number') {
+      selfValue = new Date(selfValue)
+    }
     return {
-      selfValue: this.$props.value
+      selfValue: selfValue
     }
   },
   watch: {
