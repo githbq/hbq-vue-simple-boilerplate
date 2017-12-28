@@ -65,7 +65,7 @@ export default {
     onChange (page) {
       this.$data.selfCurrent = page
       this.$data.inputCurrent = page
-      this.$emit.call(this, 'on-change', page)
+      this.$emit('on-change', page)
     },
     changePage () {
       this.selfCurrent = this.$data.inputCurrent

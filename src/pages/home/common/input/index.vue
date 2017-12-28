@@ -73,7 +73,7 @@ export default {
       this.$emit.apply(this, ['on-keyup'].concat(args))
     },
     onKeydown (...args) {
-      this.$emit.apply(this, ['on-keydown'].concat(arguargsments))
+      this.$emit.apply(this, ['on-keydown'].concat(args))
     },
     onKeypress (...args) {
       this.$emit.apply(this, ['on-keypress'].concat(args))
