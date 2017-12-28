@@ -72,16 +72,16 @@ export default {
   methods: {
     onChange (newValue) {
       this.$emit('input', newValue)
-      this.$emit.apply(this, ['on-change'].concat(arguments))
+      this.$emit.apply(this, ['on-change'].concat([].slice.call(arguments)))
     },
-    onOpenChange () {
-      this.$emit.apply(this, ['on-open-change'].concat(arguments))
+    onOpenChange (...args) {
+      this.$emit.apply(this, ['on-open-change'].concat(args))
     },
-    onOk () {
-      this.$emit.apply(this, ['on-ok'].concat(arguments))
+    onOk (...args) {
+      this.$emit.apply(this, ['on-ok'].concat(args))
     },
-    onClear () {
-      this.$emit.apply(this, ['on-clear'].concat(arguments))
+    onClear (...args) {
+      this.$emit.apply(this, ['on-clear'].concat(args))
     }
   }
 }

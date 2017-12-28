@@ -40,11 +40,11 @@ export default {
     }
   },
   methods: {
-    onClick() {
-      this.$emit.apply(this, ['on-click'].concat(arguments))
+    onClick(...args) {
+      this.$emit.apply(this, ['on-click'].concat(args))
     },
-    onVisibleChange() {
-      this.$emit.apply(this, ['on-visible-change'].concat(arguments))
+    onVisibleChange(...args) {
+      this.$emit.apply(this, ['on-visible-change'].concat(args))
     }
   }
 }

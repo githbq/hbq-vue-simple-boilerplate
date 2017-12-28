@@ -68,11 +68,11 @@ export default {
     }
   },
   methods: {
-    onChange () {
-      this.$emit.apply(this, ['on-change'].concat(arguments))
+    onChange (...args) {
+      this.$emit.apply(this, ['on-change'].concat(args))
     },
-    onVisibleChange () {
-      this.$emit.apply(this, ['on-visible-change'].concat(arguments))
+    onVisibleChange (...args) {
+      this.$emit.apply(this, ['on-visible-change'].concat(args))
     }
   }
 }

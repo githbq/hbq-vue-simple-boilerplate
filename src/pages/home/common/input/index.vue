@@ -54,29 +54,29 @@ export default {
     focus () {
       this.$refs.input.focus()
     },
-    onEnter () {
-      this.$emit.apply(this, ['on-enter'].concat(arguments))
+    onEnter (...args) {
+      this.$emit.apply(this, ['on-enter'].concat(args))
     },
-    onClick () {
-      this.$emit.apply(this, ['on-click'].concat(arguments))
+    onClick (...args) {
+      this.$emit.apply(this, ['on-click'].concat(args))
     },
-    onChange () {
-      this.$emit.apply(this, ['on-change'].concat(arguments))
+    onChange (...args) {
+      this.$emit.apply(this, ['on-change'].concat(args))
     },
-    onFocus () {
-      this.$emit.apply(this, ['on-focus'].concat(arguments))
+    onFocus (...args) {
+      this.$emit.apply(this, ['on-focus'].concat(args))
     },
-    onBlur () {
-      this.$emit.apply(this, ['on-blur'].concat(arguments))
+    onBlur (...args) {
+      this.$emit.apply(this, ['on-blur'].concat(args))
     },
-    onKeyup () {
-      this.$emit.apply(this, ['on-keyup'].concat(arguments))
+    onKeyup (...args) {
+      this.$emit.apply(this, ['on-keyup'].concat(args))
     },
-    onKeydown () {
-      this.$emit.apply(this, ['on-keydown'].concat(arguments))
+    onKeydown (...args) {
+      this.$emit.apply(this, ['on-keydown'].concat(arguargsments))
     },
-    onKeypress () {
-      this.$emit.apply(this, ['on-keypress'].concat(arguments))
+    onKeypress (...args) {
+      this.$emit.apply(this, ['on-keypress'].concat(args))
     }
   }
 }
