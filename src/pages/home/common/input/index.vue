@@ -26,6 +26,9 @@
 <script>
 import IViewInput from 'iview/src/components/input'
 export default {
+  components: {
+    IViewInput
+  },
   props: {
     placeholder: { default: '' },
     value: { default: undefined },
@@ -47,14 +50,11 @@ export default {
       this.$emit('input', newValue)
     }
   },
-  components: {
-    IViewInput
-  },
   methods: {
     focus() {
       this.$refs.input.focus()
     },
-    onEnter() {
+    onEnter() { 
       this.$emit.apply(this, ['on-enter'].concat(arguments))
     },
     onClick() {

@@ -22,6 +22,9 @@
 <script>
 import VueCropper from 'vue-cropperjs';
 export default {
+  components: {
+    VueCropper
+  },
   props: {
     // 是否显示选框虚线
     guides: { default: false },
@@ -37,14 +40,11 @@ export default {
     // 图片样式
     imgStyle: {
       default: () => { return { width: '500px', height: '500px' } }
-    }, 
+    },
     autoCrop: { default: true },
     alt: { default: '源图片' },
     highlight: { default: false },
     movable: { default: true }
-  },
-  components: {
-    VueCropper
   },
   watch: {
     imgSrc(newValue) {

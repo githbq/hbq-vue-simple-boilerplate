@@ -1,18 +1,18 @@
 <template>  
-    <IViewCheckboxGroup 
+    <IViewRadioGroup 
      class="zpfe-iview-checkbox-group"
     v-model="selfValue"  
     :size="size"  
     >
     <slot></slot>
-    </IViewCheckboxGroup>
+    </IViewRadioGroup>
 </template>
 
 <script>
-import IViewCheckboxGroup from 'iview/src/components/checkbox-group'
+import IViewRadioGroup from 'iview/src/components/radio-group'
 export default {
     components: {
-        IViewCheckboxGroup
+        IViewRadioGroup
     },
     props: {
         value: { default: null },
@@ -35,6 +35,6 @@ export default {
 }
 </script>
 <style lang="scss">
-.zpfe-iview-checkbox-group {
+.zpfe-iview-radio-group {
 }
 </style>

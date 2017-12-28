@@ -9,14 +9,16 @@ inputValue:{{inputValue}}
 <hr/>
 <ZPSelect :multiple="false" key-field="value" v-model="selectValue" :data="items" />
 <hr/>
+<Cascader v-model="cascaderValue" :data="cascaderData"></Cascader> 
+<hr/>
 </div>
 </template>
 
 <script>
-import { Select as ZPSelect, DatePicker, Input as ZPInput } from './common'
-
+import { Cascader, Select as ZPSelect, DatePicker, Input as ZPInput } from './common'
 export default {
   components: {
+    Cascader,
     DatePicker,
     ZPInput,
     ZPSelect
@@ -24,8 +26,33 @@ export default {
   data() {
     return {
       abc: 1441036800000,
+      cascaderValue: [],
       inputValue: 'inputValue',
       selectValue: 'New York',
+      cascaderData: [{
+        value: 'zhejiang',
+        label: '浙江',
+        children: [{
+          value: 'hangzhou',
+          label: '杭州',
+          children: [{
+            value: 'xihu',
+            label: '西湖'
+          }]
+        }]
+      }, {
+        value: 'jiangsu',
+        label: '江苏',
+        disabled: true,
+        children: [{
+          value: 'nanjing',
+          label: '南京',
+          children: [{
+            value: 'zhonghuamen',
+            label: '中华门'
+          }]
+        }]
+      }],
       items: [
         {
           value: 'New York',
@@ -54,7 +81,6 @@ export default {
       ]
     }
   },
-
   methods: {
     login() {
       this.$refs.ruleForm.validate((valid) => {

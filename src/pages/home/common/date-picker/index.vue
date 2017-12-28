@@ -18,7 +18,10 @@
 
 <script>
 import DatePicker from 'iview/src/components/date-picker'
-export default {
+export default { 
+  components: {
+    DatePicker
+  },
   props: {
     monthOnly: { default: true },
     confirm: { default: false },
@@ -65,9 +68,6 @@ export default {
     selfValue(newValue) {
       this.$emit('input', newValue)
     }
-  },
-  components: {
-    DatePicker
   },
   methods: {
     onChange(newValue) {

@@ -20,5 +20,9 @@ import Input from './input'
 import Select from './select'
 // 下拉列表组件
 import Checkbox from './checkbox'
+// 单选组件
+import Radio from './radio'
+// 下拉级联组件
+import Cascader from './cascader'
 // 导出
-export { Checkbox, Modal, Page, Cropper, DatePicker, Input, Select }
+export { Radio, Cascader, Checkbox, Modal, Page, Cropper, DatePicker, Input, Select }

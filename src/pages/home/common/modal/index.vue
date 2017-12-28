@@ -11,6 +11,9 @@
 <script>
 import Modal from 'iview/src/components/modal'
 export default {
+  components: {
+    Modal
+  },
   props: {
     value: { default: false },
     title: { default: '标题参数名:title' },
@@ -37,9 +40,6 @@ export default {
     visible(newValue) {
       this.$emit('input', newValue)
     }
-  },
-  components: {
-    Modal
   },
   methods: {
     ok(...args) {

@@ -27,6 +27,9 @@
 <script>
 import Page from 'iview/src/components/page'
 export default {
+  components: {
+    Page
+  },
   props: {
     current: { default: 1 },
     total: { default: 0 },
@@ -52,9 +55,6 @@ export default {
       this.$data.selfCurrent = value
       this.$data.inputCurrent = value
     }
-  },
-  components: {
-    Page
   },
   created () {
   },

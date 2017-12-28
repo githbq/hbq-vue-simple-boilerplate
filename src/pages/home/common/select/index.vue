@@ -14,6 +14,10 @@
 import IViewSelect from 'iview/src/components/select'
 import IViewOption from 'iview/src/components/option'
 export default {
+  components: {
+    IViewSelect,
+    IViewOption
+  },
   props: {
     multiple: { default: false },
     value: { default: undefined },
@@ -36,10 +40,6 @@ export default {
     selfValue(newValue) {
       this.$emit('input', newValue)
     }
-  },
-  components: {
-    IViewSelect,
-    IViewOption
   },
   methods: {
 
