@@ -24,5 +24,7 @@ import Checkbox from './checkbox'
 import Radio from './radio'
 // 下拉级联组件
 import Cascader from './cascader'
+// 下拉弹层组件
+import Dropdown from './dropdown'
 // 导出
-export { Radio, Cascader, Checkbox, Modal, Page, Cropper, DatePicker, Input, Select }
+export { Dropdown, Radio, Cascader, Checkbox, Modal, Page, Cropper, DatePicker, Input, Select }
