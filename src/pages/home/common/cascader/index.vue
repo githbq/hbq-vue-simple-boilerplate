@@ -1,5 +1,6 @@
 <template>  
   <IViewCascader 
+  class="zpfe-iview-cascader"
   v-model="selfValue" 
   :data="data"
   :render-format="renderFormat"

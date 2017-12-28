@@ -9,7 +9,9 @@ inputValue:{{inputValue}}
 <hr/>
 <ZPSelect :multiple="false" key-field="value" v-model="selectValue" :data="items" />
 <hr/>
-<Cascader v-model="cascaderValue" :data="cascaderData"></Cascader> 
+<Cascader size="large" v-model="cascaderValue" :data="cascaderData"></Cascader> 
+<hr/>
+<button @click="showMessage">show message</button>
 <hr/>
 </div>
 </template>
@@ -29,30 +31,20 @@ export default {
       cascaderValue: [],
       inputValue: 'inputValue',
       selectValue: 'New York',
-      cascaderData: [{
-        value: 'zhejiang',
-        label: '浙江',
-        children: [{
-          value: 'hangzhou',
-          label: '杭州',
+      cascaderData: [
+        {
+          value: 'zhejiang',
+          label: '浙江',
           children: [{
-            value: 'xihu',
-            label: '西湖'
+            value: 'hangzhou',
+            label: '杭州',
+            children: [{
+              value: 'xihu',
+              label: '西湖'
+            }]
           }]
-        }]
-      }, {
-        value: 'jiangsu',
-        label: '江苏',
-        disabled: true,
-        children: [{
-          value: 'nanjing',
-          label: '南京',
-          children: [{
-            value: 'zhonghuamen',
-            label: '中华门'
-          }]
-        }]
-      }],
+        }
+      ],
       items: [
         {
           value: 'New York',
@@ -89,6 +81,9 @@ export default {
         }
         location.assign('../user/index.html')
       })
+    },
+    showMessage() {
+      this.$Message.info('This is a info tip')
     }
   }
 }
