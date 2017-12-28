@@ -41,7 +41,7 @@ export default {
     showTotal: { default: false },
     // 此属性不能使用
     showElevator: { default: false },
-    showSizer: { default: false }, 
+    showSizer: { default: false },
     styles: { default: () => { } }
   },
   data () {

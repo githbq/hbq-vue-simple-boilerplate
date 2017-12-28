@@ -47,7 +47,7 @@ export default {
     movable: { default: true }
   },
   watch: {
-    imgSrc(newValue) {
+    imgSrc (newValue) {
       if (newValue) {
         this.$refs.cropper.replace(newValue)
         this.$emit('on-img-load', this.getImgBase64())
@@ -55,10 +55,10 @@ export default {
     }
   },
   methods: {
-    getImgBase64() {
+    getImgBase64 () {
       return this.$refs.cropper.getCroppedCanvas().toDataURL()
     },
-    rotate(deg = 90) {
+    rotate (deg = 90) {
       this.$refs.cropper.rotate(deg);
     }
   }

@@ -24,31 +24,31 @@ export default {
     okText: { default: '确定' },
     cancelText: { default: '取消' },
     width: { default: 520 },
-    styles: { default: () => { } }, 
+    styles: { default: () => { } },
     transitionNames: { default: () => [] },
     transfer: { default: true }
   },
-  data() {
+  data () {
     return {
       visible: this.$props.value
     }
   },
   watch: {
-    value(newValue) {
+    value (newValue) {
       this.$data.visible = newValue
     },
-    visible(newValue) {
+    visible (newValue) {
       this.$emit('input', newValue)
     }
   },
   methods: {
-    ok(...args) {
+    ok (...args) {
       this.$emit.apply(this, ['on-ok'].concat(args))
     },
-    cancel(...args) {
+    cancel (...args) {
       this.$emit.apply(this, ['on-cancel'].concat(args))
     },
-    visibleChange(...args) {
+    visibleChange (...args) {
       this.$emit.apply(this, ['on-visible-change'].concat(args))
     }
   }

@@ -18,7 +18,7 @@
 
 <script>
 import DatePicker from 'iview/src/components/date-picker'
-export default { 
+export default {
   components: {
     DatePicker
   },
@@ -28,7 +28,7 @@ export default {
     value: { default: null },
     type: { default: 'year' },
     placeholder: {
-      default() {
+      default () {
         let value = ''
         switch (this.$props.type) {
           case 'year': { value = '选择年份' } break
@@ -39,7 +39,7 @@ export default {
     },
     placement: { default: 'bottom-start' },
     format: {
-      default() {
+      default () {
         let value = null
         switch (this.$props.type) {
           case 'month': {
@@ -52,7 +52,7 @@ export default {
       }
     }
   },
-  data() {
+  data () {
     let selfValue = this.$props.value
     if (typeof selfValue === 'number') {
       selfValue = new Date(selfValue)
@@ -62,25 +62,25 @@ export default {
     }
   },
   watch: {
-    value(newValue) {
+    value (newValue) {
       this.$data.selfValue = newValue
     },
-    selfValue(newValue) {
+    selfValue (newValue) {
       this.$emit('input', newValue)
     }
   },
   methods: {
-    onChange(newValue) {
+    onChange (newValue) {
       this.$emit('input', newValue)
       this.$emit.apply(this, ['on-change'].concat(arguments))
     },
-    onOpenChange() {
+    onOpenChange () {
       this.$emit.apply(this, ['on-open-change'].concat(arguments))
     },
-    onOk() {
+    onOk () {
       this.$emit.apply(this, ['on-ok'].concat(arguments))
     },
-    onClear() {
+    onClear () {
       this.$emit.apply(this, ['on-clear'].concat(arguments))
     }
   }

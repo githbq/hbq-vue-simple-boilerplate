@@ -56,24 +56,24 @@ export default {
     transfer: { type: Boolean, default: false },
     elementId: { type: String, default: undefined }
   },
-  data() {
+  data () {
     return { selfValue: this.$props.value }
   },
   watch: {
-    value(newValue) {
+    value (newValue) {
       this.$data.selfValue = newValue
     },
-    selfValue(newValue) {
+    selfValue (newValue) {
       this.$emit('input', newValue)
     }
   },
   methods: {
-    onChange() {
+    onChange () {
       this.$emit.apply(this, ['on-change'].concat(arguments))
     },
-    onVisibleChange() {
+    onVisibleChange () {
       this.$emit.apply(this, ['on-visible-change'].concat(arguments))
-    },
+    }
   }
 }
 </script>

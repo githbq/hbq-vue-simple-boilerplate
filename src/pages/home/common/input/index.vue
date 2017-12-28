@@ -33,49 +33,49 @@ export default {
     placeholder: { default: '' },
     value: { default: undefined },
     type: { default: undefined },
-    rows: { default: undefined }, 
+    rows: { default: undefined },
     autofocus: { default: false },
     readonly: { default: false },
     disabled: { default: false },
     maxlength: { default: null }
   },
-  data() {
+  data () {
     return { selfValue: this.$props.value }
   },
   watch: {
-    value(newValue) {
+    value (newValue) {
       this.$data.selfValue = newValue
     },
-    selfValue(newValue) {
+    selfValue (newValue) {
       this.$emit('input', newValue)
     }
   },
   methods: {
-    focus() {
+    focus () {
       this.$refs.input.focus()
     },
-    onEnter() { 
+    onEnter () {
       this.$emit.apply(this, ['on-enter'].concat(arguments))
     },
-    onClick() {
+    onClick () {
       this.$emit.apply(this, ['on-click'].concat(arguments))
     },
-    onChange() {
+    onChange () {
       this.$emit.apply(this, ['on-change'].concat(arguments))
     },
-    onFocus() {
+    onFocus () {
       this.$emit.apply(this, ['on-focus'].concat(arguments))
     },
-    onBlur() {
+    onBlur () {
       this.$emit.apply(this, ['on-blur'].concat(arguments))
     },
-    onKeyup() {
+    onKeyup () {
       this.$emit.apply(this, ['on-keyup'].concat(arguments))
     },
-    onKeydown() {
+    onKeydown () {
       this.$emit.apply(this, ['on-keydown'].concat(arguments))
     },
-    onKeypress() {
+    onKeypress () {
       this.$emit.apply(this, ['on-keypress'].concat(arguments))
     }
   }

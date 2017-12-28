@@ -30,14 +30,14 @@ export default {
     onQueryChange: { default: () => function () { } },
     onChange: { default: () => function () { } }
   },
-  data() {
+  data () {
     return { selfValue: this.$props.value }
   },
   watch: {
-    value(newValue) {
+    value (newValue) {
       this.$data.selfValue = newValue
     },
-    selfValue(newValue) {
+    selfValue (newValue) {
       this.$emit('input', newValue)
     }
   },
