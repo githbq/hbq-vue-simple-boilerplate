@@ -20,7 +20,7 @@ import {Dropdown} from 'components/common'
 //.....vue
 {
     data:{
-        reutnr {dropdownVisible:false}
+        return {dropdownVisible:false}
     },
     methods:{
         closeDropdown(){
