@@ -26,5 +26,9 @@ import Radio from './radio'
 import Cascader from './cascader'
 // 下拉弹层组件
 import Dropdown from './dropdown'
+// 自动完成
+import AutoComplete from './auto-complete'
+// 下拉列表级联
+import SelectCascader from './select-cascader'
 // 导出
-export { Dropdown, Radio, Cascader, Checkbox, Modal, Page, Cropper, DatePicker, Input, Select }
+export { AutoComplete, SelectCascader, Dropdown, Radio, Cascader, Checkbox, Modal, Page, Cropper, DatePicker, Input, Select }

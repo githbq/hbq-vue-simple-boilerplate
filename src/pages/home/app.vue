@@ -21,15 +21,21 @@ inputValue:{{inputValue}}
   </div> 
 </Dropdown>
 
-<hr/> 
+<hr/>
+<SelectCascader/> 
+<hr/>
+<AutoComplete v-model="inputValue" />
+<hr/>
 </div>
 </template>
 
 <script>
-import { Cascader, Select as ZPSelect, DatePicker, Input as ZPInput, Dropdown } from './common'
+import { AutoComplete, SelectCascader, Cascader, Select as ZPSelect, DatePicker, Input as ZPInput, Dropdown } from './common'
 import Dropdown2 from 'iview/src/components/dropdown'
 export default {
   components: {
+    AutoComplete,
+    SelectCascader,
     DropdownMenu: Dropdown2.Menu,
     Dropdown,
     Cascader,
