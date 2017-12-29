@@ -1,31 +1,42 @@
 <template> 
-    <Dropdown class="zpfe-iview-dropdown" 
+  <Dropdown 
+    class="zpfe-iview-dropdown"
     :trigger="trigger"
     :visible="visible"
     :placement="placement"
     :transfer="transfer"
     @on-click="onClick"
     @on-visible-change="onVisibleChange"
-    > 
-    <slot>
-    </slot>
-    <slot name="list"></slot>
-    </Dropdown> 
-</template>
-
+    >
+        <slot></slot>
+        <DropdownMenu slot="list" class="zpfe-iview-dropdown-menu">
+            <slot name="content"></slot>
+            <DropdownItem class="zpfe-iview-dropdown-item" v-for="(item,index) in data" :key="index" :name="item[$props.nameField]">
+            <slot name="item" :item="item">
+            {{item[$props.labelField]}}
+            </slot>
+            </DropdownItem>
+        </DropdownMenu>
+    </Dropdown>
+</template> 
 <script>
 import Dropdown from 'iview/src/components/dropdown'
 export default {
   components: {
-    Dropdown
+    Dropdown,
+    DropdownMenu: Dropdown.Menu,
+    DropdownItem: Dropdown.Item
   },
   props: {
+    data: { default: [] },
+    labelField: { default: 'label' },
+    nameField: { default: 'name' },
     trigger: {
       // 'hover' 'click' 'custom'
       default: 'click'
     },
-    visible: { default: true },
-    placement: { default: 'bottom' },
+    visible: { default: false },
+    placement: { default: 'bottom-start' },
     transfer: { default: false }
   },
   data() {

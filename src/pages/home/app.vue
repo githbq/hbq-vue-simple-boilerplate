@@ -13,13 +13,25 @@ inputValue:{{inputValue}}
 <hr/>
 <button @click="showMessage">show message</button>
 <hr/>
+<Dropdown style="border:2px solid red;margin-left:50px;" :visible="dropdownVisible" :data="dropdownData" trigger="custom">
+  <div @click="dropdownVisible=true">你好111111111111111</div> 
+  <div slot="content">
+    <div style="border:2px solid red;width:500px;height:500px;"> how are you  </div>
+    <button @click="closeDropdown"> dropdownVisible:{{dropdownVisible}} </button>
+  </div> 
+</Dropdown>
+
+<hr/> 
 </div>
 </template>
 
 <script>
-import { Cascader, Select as ZPSelect, DatePicker, Input as ZPInput } from './common'
+import { Cascader, Select as ZPSelect, DatePicker, Input as ZPInput, Dropdown } from './common'
+import Dropdown2 from 'iview/src/components/dropdown'
 export default {
   components: {
+    DropdownMenu: Dropdown2.Menu,
+    Dropdown,
     Cascader,
     DatePicker,
     ZPInput,
@@ -27,6 +39,8 @@ export default {
   },
   data() {
     return {
+      dropdownData: [{ name: '111', label: 'AAA' }],
+      dropdownVisible: false,
       abc: 1441036800000,
       cascaderValue: [],
       inputValue: 'inputValue',
@@ -74,6 +88,9 @@ export default {
     }
   },
   methods: {
+    closeDropdown() {
+      this.dropdownVisible = !this.dropdownVisible
+    },
     login() {
       this.$refs.ruleForm.validate((valid) => {
         if (!valid) {
