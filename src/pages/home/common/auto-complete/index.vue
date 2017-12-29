@@ -57,6 +57,13 @@ export default {
 }
 </script>
 <style lang="scss">
-.zpfe-iview-input {
+.zpfe-iview-auto_complete {
+  border: 1px solid #3888ff;
+  .ivu-input:focus {
+    caret-color: #3888ff;
+  }
+  .ivu-input {
+    border-radius: 0px;
+  }
 }
 </style>
