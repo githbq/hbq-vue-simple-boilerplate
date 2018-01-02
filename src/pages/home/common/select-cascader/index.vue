@@ -1,21 +1,21 @@
 <template>
     <div class="zpfe-select-cascader"> 
-    <div class="cascader-select-wrapper" v-for="(item,index) in config" :key="index">
-    <span class="cascader-select-label">{{item.label}}</span> 
-    <ZPSelect  
-    v-model="item.value"
-    :disabled="item.disabled"
-    :placeholder="item.placeholder"
-    class="cascader-select"
-    :clearable="clearable"
-    @on-change="item.onChange"
-    :labelField="item.labelField"
-    :valueField="item.valueField"
-    :data="item.data"
-    >
-    </ZPSelect >
-    <br/>item.value:{{JSON.stringify(item.value)}}
-    </div>  
+        <div class="cascader-select-wrapper" v-for="(item,index) in config" :key="index">
+            <span v-if="item.label" class="cascader-select-label">{{item.label}}</span> 
+            <ZPSelect  
+            v-model="item.value"
+            :disabled="item.disabled"
+            :placeholder="item.placeholder"
+            class="cascader-select"
+            :clearable="clearable"
+            @on-change="item.onChange"
+            :labelField="item.labelField"
+            :valueField="item.valueField"
+            :data="item.data"
+            >
+            </ZPSelect >
+            <br/>item.value:{{JSON.stringify(item.value)}}
+        </div>  
     </div>
 </template>
 
