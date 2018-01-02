@@ -59,7 +59,7 @@ export default {
       return this.$refs.select.setQuery.apply(this, args)
     },
     clearSingleSelect(...args) {
-      return this.$refs.select.clearSingleSelect.apply(this, args)
+      this.$refs.select.clearSingleSelect.apply(this, args)
     },
     self_onChange(value) {
       let item
@@ -82,5 +82,8 @@ export default {
 </script>
 <style lang="scss">
 .zpfe-iview-select {
+  .ivu-select-selection {
+    border-radius: 0px;
+  }
 }
 </style>
