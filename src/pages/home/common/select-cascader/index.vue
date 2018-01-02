@@ -54,11 +54,15 @@ export default {
 
                 },
                 {
-                    value: 'a1v_1', placeholder: '请选择市', model: null, label: '市',
+                    value: 'a1v_1', placeholder: '请选择市', label: '市',
                     data: []
                 },
                 {
-                    value: 'a1v_2', placeholder: '请选择区', model: null, label: '区',
+                    value: 'a1v_2', placeholder: '请选择区', label: '区',
+                    data: []
+                },
+                {
+                    value: 'a1v_3', placeholder: '请选择村', label: '村',
                     data: []
                 },
             ]
@@ -72,44 +76,61 @@ export default {
     },
     beforeMount() {
         const config = this.config || []
+        const that = this
+        const selectChange = this.selectChange || this.noop
+        function setData(value, item, level, trigger = false) {
+            return that.self_getData(value, item, level).then((data) => {
+                item.data = data
+                item.placeholder = item._placeholder
+                if (!item._inited) {
+                    item.value = item._value
+                    item._value = ''
+                    item._inited = true
+                }
+                if (item._isLast && !that.$data.inited) {
+                    that.$data.inited = true
+                }
+            })
+        }
         config.forEach((n, i) => {
+            n._value = n.value
+            n.value = null
             n._index = i
             n.disabled = !!n.disabled
             n.data = n.data || []
             n._placeholder = n.placeholder
+            if (i === 0) {
+                n._isFirst = true
+            }
             if (i < config.length - 1) {
                 n._next = config[i + 1]
-            } else if (i === config.length - 1) {
+            }
+            if (i === config.length - 1) {
                 n._isLast = true
             }
-            const selectChange = this.selectChange || this.noop
-            const that = this
-            function setData(value, item, level, trigger = false) {
-                that.self_getData(value, item, level).then((data) => {
-                    item.data = data
-                    item.placeholder = item._placeholder
-                    if (item._isLast && !that.$data.inited) {
-                        that.$data.inited = true
-                    }
-                })
-                trigger && item.onChange(item.value)
-            }
+            const dic = {}
             n.onChange = (value) => {
+                if (dic && !dic[i] || that.$data.inited) {
+                    dic[i] = true
+                } else {
+                    return
+                }
                 selectChange.call(n, value, n)
                 if (n._next) {
                     n._next.data = []
                     if (that.$data.inited) {
                         n._next.value = ''
-                    } else if (!n._inited) {
+                    }
+                    else if (!n._inited) {
+                        n.placeholder = that.$props.loadingText
+                        n._next.placeholder = that.$props.loadingText
                         setData('', n, i)
-                        n._inited = true
                     }
                     if (value !== '') {
                         n._next.placeholder = that.$props.loadingText
                         setData(value, n._next, i + 1, true)
                     } else {
                         n._next.placeholder = n._next._placeholder
-                        !n._isLast && n._next.onChange(value)
                     }
                 }
             }
@@ -133,7 +154,7 @@ export default {
                 result = Promise.resolve(result)
             }
             return result
-        },
+        }
     }
 }
 </script>
