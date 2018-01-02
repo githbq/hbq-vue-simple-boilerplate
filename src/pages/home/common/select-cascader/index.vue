@@ -26,6 +26,13 @@ export default {
         data.forEach(n => {
             if (!n.onChange) {
                 n.onChange = this.noop
+            } else {
+                const oldMethod = n.onChange
+                n.onChange = (...args) => {
+                    debugger
+                    oldMethod.apply(n, args)
+                    debugger
+                }
             }
         })
     },
@@ -36,6 +43,7 @@ export default {
                     model: null, label: '省',
                     data: [{ label: 'a1', value: 'a1v' }, { label: 'a2', value: 'a2v' }],
                     onChange(value, item) {
+                        debugger
                     }
                 },
                 { model: null, label: '市', data: [{ label: 'b1', value: 'b1v' }] },

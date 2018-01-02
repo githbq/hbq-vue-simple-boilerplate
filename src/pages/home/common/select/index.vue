@@ -3,9 +3,18 @@
      class="zpfe-iview-select" 
      v-model="selfValue"
      :multiple="multiple"
+     :disabled="disabled"
+     :filterable="filterable"
+     :clearable="clearable"
+     :not-found-text="notFoundText"
+     :label-in-value="labelInValue"
+     :transfer="transfer"
+     :element-id="elementId"
+     :placeholder="placeholder"
      @on-change="self_onChange"
      @on-query-change="self_onQueryChange"
-     :placeholder="placeholder">
+     ref="select"
+    >
        <IViewOption v-for="item in data" :value="item[$props.valueField]" :key="item[$props.keyField]">{{ item[$props.labelField] }}</IViewOption>
      </IViewSelect>  
 </template>
@@ -26,6 +35,13 @@ export default {
     valueField: { default: 'value' },
     keyField: { default: 'key' },
     labelField: { default: 'label' },
+    disabled: { default: false },
+    filterable: { default: false },
+    clearable: { default: false },
+    notFoundText: { default: '无匹配数据' },
+    labelInValue: { default: false },
+    transfer: { default: false },
+    elementId: { default: undefined }
   },
   data() {
     return { selfValue: this.$props.value }
@@ -39,6 +55,12 @@ export default {
     }
   },
   methods: {
+    setQuery(...args) {
+      return this.$refs.select.setQuery.apply(this, args)
+    },
+    clearSingleSelect(...args) {
+      return this.$refs.select.clearSingleSelect.apply(this, args)
+    },
     self_onChange(value) {
       let item
       const data = this.$props.data || []
@@ -49,7 +71,7 @@ export default {
           item = n
           break
         }
-      } 
+      }
       this.$emit('on-change', value, item)
     },
     self_onQueryChange(...args) {
