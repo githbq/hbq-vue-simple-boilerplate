@@ -22,7 +22,12 @@ inputValue:{{inputValue}}
 </Dropdown>
 
 <hr/>
-<SelectCascader/> 
+<fieldset >
+  <legend>
+  SelectCascader
+  </legend>
+  <SelectCascader/> 
+</fieldset> 
 <hr/>
 <AutoComplete v-model="inputValue" />
 <hr/>
