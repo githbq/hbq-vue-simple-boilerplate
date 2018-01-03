@@ -79,6 +79,7 @@ export default {
         const that = this
         const selectChange = this.selectChange || this.noop
         function setData(value, item, level, trigger = false) {
+            console.log(item)
             return that.self_getData(value, item, level).then((data) => {
                 item.data = data
                 item.placeholder = item._placeholder
@@ -108,13 +109,7 @@ export default {
             if (i === config.length - 1) {
                 n._isLast = true
             }
-            const dic = {}
             n.onChange = (value) => {
-                if (dic && !dic[i] || that.$data.inited) {
-                    dic[i] = true
-                } else {
-                    return
-                }
                 selectChange.call(n, value, n)
                 if (n._next) {
                     n._next.data = []
@@ -126,7 +121,7 @@ export default {
                         n._next.placeholder = that.$props.loadingText
                         setData('', n, i)
                     }
-                    if (value !== '') {
+                    if (value !== '' && n._inited) {
                         n._next.placeholder = that.$props.loadingText
                         setData(value, n._next, i + 1, true)
                     } else {
