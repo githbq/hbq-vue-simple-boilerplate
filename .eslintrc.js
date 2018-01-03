@@ -1,17 +1,16 @@
-// http://eslint.org/docs/user-guide/configuring
-
 module.exports = {
-  root: true,
   parser: 'babel-eslint',
-  parserOptions: {
-    sourceType: 'module'
-  },
+  extends: 'standard',
   env: {
     browser: true,
+    node: true,
+    es6: true
   },
-  extends: 'vue',
-  // required to lint *.vue files
   plugins: [
     'html'
-  ]
+  ],
+  rules: {
+    'semi': 'off',
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'error' : 'off'
+  }
 }

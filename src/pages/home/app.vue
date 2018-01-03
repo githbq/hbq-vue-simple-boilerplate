@@ -48,7 +48,7 @@ export default {
     ZPInput,
     ZPSelect
   },
-  data() {
+  data () {
     return {
       dropdownData: [{ name: '111', label: 'AAA' }],
       dropdownVisible: false,
@@ -99,10 +99,10 @@ export default {
     }
   },
   methods: {
-    closeDropdown() {
+    closeDropdown () {
       this.dropdownVisible = !this.dropdownVisible
     },
-    login() {
+    login () {
       this.$refs.ruleForm.validate((valid) => {
         if (!valid) {
           return
@@ -110,7 +110,7 @@ export default {
         location.assign('../user/index.html')
       })
     },
-    showMessage() {
+    showMessage () {
       this.$Message.info('This is a info tip')
     }
   }

@@ -31,10 +31,10 @@
         },
         rules: {
           phone: [
-             { required: true, message: 'Phone required', trigger: 'blur' }
+            { required: true, message: 'Phone required', trigger: 'blur' }
           ],
           password: [
-             { required: true, message: 'Password required', trigger: 'blur' }
+            { required: true, message: 'Password required', trigger: 'blur' }
           ]
         }
       }
