@@ -35,22 +35,22 @@ export default {
     transfer: { default: false },
     elementId: { default: null }
   },
-  data() {
+  data () {
     return { selfValue: this.$props.value }
   },
   watch: {
-    value(newValue) {
+    value (newValue) {
       this.$data.selfValue = newValue
     },
-    selfValue(newValue) {
+    selfValue (newValue) {
       this.$emit('input', newValue)
     }
   },
   methods: {
-    onSelect(...args) {
+    onSelect (...args) {
       this.$emit.apply(this, ['on-select'].concat(args))
     },
-    onSearch(...args) {
+    onSearch (...args) {
       this.$emit.apply(this, ['on-search'].concat(args))
     }
   }

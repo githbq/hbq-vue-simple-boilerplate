@@ -43,25 +43,25 @@ export default {
     transfer: { default: false },
     elementId: { default: undefined }
   },
-  data() {
+  data () {
     return { selfValue: this.$props.value }
   },
   watch: {
-    value(newValue) {
+    value (newValue) {
       this.$data.selfValue = newValue
     },
-    selfValue(newValue) {
+    selfValue (newValue) {
       this.$emit('input', newValue)
     }
   },
   methods: {
-    setQuery(...args) {
+    setQuery (...args) {
       return this.$refs.select.setQuery.apply(this, args)
     },
-    clearSingleSelect(...args) {
+    clearSingleSelect (...args) {
       this.$refs.select.clearSingleSelect.apply(this, args)
     },
-    self_onChange(value) {
+    self_onChange (value) {
       let item
       const data = this.$props.data || []
       const valueField = this.$props.valueField || 'value'
@@ -74,7 +74,7 @@ export default {
       }
       this.$emit('on-change', value, item)
     },
-    self_onQueryChange(...args) {
+    self_onQueryChange (...args) {
       this.$emit.apply(this, ['on-query-change'].concat(args))
     }
   }

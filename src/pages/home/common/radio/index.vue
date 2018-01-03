@@ -29,21 +29,21 @@ export default {
     trueValue: { default: true },
     falseValue: { default: false }
   },
-  data() {
+  data () {
     return { selfValue: this.$props.value }
   },
   watch: {
-    value(newValue) {
+    value (newValue) {
       this.$data.selfValue = newValue
     },
-    selfValue(newValue) {
+    selfValue (newValue) {
       this.$emit('input', newValue)
     }
   },
   methods: {
-    onChange(...args) {
+    onChange (...args) {
       this.$emit.apply(this, ['on-change'].concat(args))
-    },
+    }
   }
 }
 </script>

@@ -13,7 +13,7 @@
             <slot name="content"></slot>
             <DropdownItem class="zpfe-iview-dropdown-item" v-for="(item,index) in data" :key="index" :name="item[$props.nameField]">
             <slot name="item" :item="item">
-            {{item[$props.labelField]}}
+            {{item[$props.labelField]}} 
             </slot>
             </DropdownItem>
         </DropdownMenu>
@@ -39,22 +39,22 @@ export default {
     placement: { default: 'bottom-start' },
     transfer: { default: false }
   },
-  data() {
+  data () {
     return { selfValue: this.$props.value }
   },
   watch: {
-    value(newValue) {
+    value (newValue) {
       this.$data.selfValue = newValue
     },
-    selfValue(newValue) {
+    selfValue (newValue) {
       this.$emit('input', newValue)
     }
   },
   methods: {
-    onClick(...args) {
+    onClick (...args) {
       this.$emit.apply(this, ['on-click'].concat(args))
     },
-    onVisibleChange(...args) {
+    onVisibleChange (...args) {
       this.$emit.apply(this, ['on-visible-change'].concat(args))
     }
   }
