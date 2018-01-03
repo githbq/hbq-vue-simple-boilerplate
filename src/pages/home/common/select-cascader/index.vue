@@ -84,8 +84,7 @@ export default {
     const config = this.config || []
     const that = this
     const selectChange = this.selectChange || this.noop
-    function setData (value, item, level, trigger = false) {
-      console.log(item)
+    function setData (value, item, level, trigger = false) { 
       return that.self_getData(value, item, level).then((data) => {
         item.data = data
         item.placeholder = item._placeholder

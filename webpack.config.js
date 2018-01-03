@@ -71,15 +71,15 @@ const config = {
           }
         }
       },
-      {
-        test: /\.js$|\.vue$/,
-        loader: 'eslint-loader',
-        exclude: /node_modules/,
-        enforce: 'pre',
-        options: {
-          fix: true
-        }
-      },
+      // {
+      //   test: /\.js$|\.vue$/,
+      //   loader: 'eslint-loader',
+      //   exclude: /node_modules/,
+      //   enforce: 'pre',
+      //   options: {
+      //     fix: true
+      //   }
+      // },
       {
         test: /iview.src.*?js$/,
         loader: 'babel-loader'

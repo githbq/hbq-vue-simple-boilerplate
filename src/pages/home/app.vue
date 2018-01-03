@@ -26,7 +26,7 @@ inputValue:{{inputValue}}
   <legend>
   SelectCascader
   </legend>
-  <SelectCascader/> 
+  <SelectCascader :config="selectCascaderConfig"/> 
 </fieldset> 
 <hr/>
 <AutoComplete v-model="inputValue" />
@@ -50,6 +50,35 @@ export default {
   },
   data () {
     return {
+      selectCascaderConfig: [
+        {
+          value: 'a1v_0',
+          label: '省111',
+          placeholder: '请选择省',
+          data: [
+            // { label: 'a' + Math.random(), value: 'a1v_' + 0 }
+          ]
+
+        },
+        {
+          value: 'a1v_1',
+          placeholder: '请选择市',
+          label: '市22',
+          data: []
+        },
+        {
+          value: 'a1v_2',
+          placeholder: '请选择区',
+          label: '区33',
+          data: []
+        },
+        {
+          value: 'a1v_3',
+          placeholder: '请选择村',
+          label: '村44',
+          data: []
+        }
+      ],
       dropdownData: [{ name: '111', label: 'AAA' }],
       dropdownVisible: false,
       abc: 1441036800000,
