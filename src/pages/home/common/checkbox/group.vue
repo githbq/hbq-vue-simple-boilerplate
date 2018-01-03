@@ -11,27 +11,27 @@
 <script>
 import IViewCheckboxGroup from 'iview/src/components/checkbox-group'
 export default {
-    components: {
-        IViewCheckboxGroup
+  components: {
+    IViewCheckboxGroup
+  },
+  props: {
+    value: { default: null },
+    size: { default: null }
+  },
+  data () {
+    return { selfValue: this.$props.value }
+  },
+  watch: {
+    value (newValue) {
+      this.$data.selfValue = newValue
     },
-    props: {
-        value: { default: null },
-        size: { default: null }
-    },
-    data() {
-        return { selfValue: this.$props.value }
-    },
-    watch: {
-        value(newValue) {
-            this.$data.selfValue = newValue
-        },
-        selfValue(newValue) {
-            this.$emit('input', newValue)
-        }
-    },
-    methods: {
-
+    selfValue (newValue) {
+      this.$emit('input', newValue)
     }
+  },
+  methods: {
+
+  }
 }
 </script>
 <style lang="scss">

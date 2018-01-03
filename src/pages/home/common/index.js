@@ -20,8 +20,10 @@ import Input from './input'
 import Select from './select'
 // 下拉列表组件
 import Checkbox from './checkbox'
+import CheckboxGroup from './checkbox/group'
 // 单选组件
 import Radio from './radio'
+import RadioGroup from './radio/group'
 // 下拉级联组件
 import Cascader from './cascader'
 // 下拉弹层组件
@@ -31,4 +33,4 @@ import AutoComplete from './auto-complete'
 // 下拉列表级联
 import SelectCascader from './select-cascader'
 // 导出
-export { AutoComplete, SelectCascader, Dropdown, Radio, Cascader, Checkbox, Modal, Page, Cropper, DatePicker, Input, Select }
+export { AutoComplete, SelectCascader, Dropdown, Radio, RadioGroup, Cascader, Checkbox, CheckboxGroup, Modal, Page, Cropper, DatePicker, Input, Select }

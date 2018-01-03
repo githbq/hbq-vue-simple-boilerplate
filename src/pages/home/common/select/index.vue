@@ -82,8 +82,7 @@ export default {
 </script>
 <style lang="scss">
 .zpfe-iview-select {
-  .ivu-select-selection,
-  .ivu-select-dropdown {
+  .ivu-select-selection {
     border-radius: 0px;
   }
 }
