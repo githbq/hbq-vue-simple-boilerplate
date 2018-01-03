@@ -20,6 +20,10 @@
     data: []
  }
 ```
+3. debug[Boolean]=true
+默认显示对应的值 设为false 就不显示值
+
+
 
 ```html
 <fieldset >
