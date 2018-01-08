@@ -1,5 +1,9 @@
 <template>
 <div>
+<fieldset>
+  <legend>page</legend>
+  <Page :page-size="20" :total="1000" :showSizer="true"/>
+</fieldset>
 <hr/>
 <DatePicker v-model="abc" type="month"></DatePicker>
 abc:{{abc}}
@@ -36,10 +40,11 @@ inputValue:{{inputValue}}
 </template>
 
 <script>
-import { AutoComplete, SelectCascader, Cascader, Select as ZPSelect, DatePicker, Input as ZPInput, Dropdown } from './common'
+import { Page, AutoComplete, SelectCascader, Cascader, Select as ZPSelect, DatePicker, Input as ZPInput, Dropdown } from './common'
 import Dropdown2 from 'iview/src/components/dropdown'
 export default {
   components: {
+    Page,
     AutoComplete,
     SelectCascader,
     DropdownMenu: Dropdown2.Menu,
@@ -136,7 +141,7 @@ export default {
         duration: 0
       });
     },
-    closeDropdown () {
+    closeDropdown() {
       this.dropdownVisible = !this.dropdownVisible
     },
     login() {
