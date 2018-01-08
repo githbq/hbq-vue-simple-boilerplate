@@ -54,28 +54,36 @@ export default {
     focus () {
       this.$refs.input.focus()
     },
-    onEnter (...args) {
+    onEnter () {
+      const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-enter'].concat(args))
     },
-    onClick (...args) {
+    onClick () {
+      const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-click'].concat(args))
     },
-    onChange (...args) {
+    onChange () {
+      const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-change'].concat(args))
     },
-    onFocus (...args) {
+    onFocus () {
+      const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-focus'].concat(args))
     },
-    onBlur (...args) {
+    onBlur () {
+      const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-blur'].concat(args))
     },
-    onKeyup (...args) {
+    onKeyup () {
+      const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-keyup'].concat(args))
     },
-    onKeydown (...args) {
+    onKeydown () {
+      const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-keydown'].concat(args))
     },
-    onKeypress (...args) {
+    onKeypress () {
+      const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-keypress'].concat(args))
     }
   }

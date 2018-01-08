@@ -41,7 +41,8 @@ export default {
     }
   },
   methods: {
-    onChange (...args) {
+    onChange () {
+      const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-change'].concat(args))
     }
   }

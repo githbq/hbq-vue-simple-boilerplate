@@ -42,13 +42,16 @@ export default {
     }
   },
   methods: {
-    ok (...args) {
+    ok () {
+      const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-ok'].concat(args))
     },
-    cancel (...args) {
+    cancel () {
+      const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-cancel'].concat(args))
     },
-    visibleChange (...args) {
+    visibleChange () {
+      const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-visible-change'].concat(args))
     }
   }

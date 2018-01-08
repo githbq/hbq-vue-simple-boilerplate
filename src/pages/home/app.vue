@@ -54,7 +54,7 @@ export default {
     ZPInput,
     ZPSelect
   },
-  data() {
+  data () {
     return {
       selectCascaderConfig: [
         {
@@ -134,17 +134,17 @@ export default {
     }
   },
   methods: {
-    testNotice() {
+    testNotice () {
       this.$Notice.success({
         title: 'Notification title',
         desc: 'This notification does not automatically close, and you need to click the close button to close.',
         duration: 0
       });
     },
-    closeDropdown() {
+    closeDropdown () {
       this.dropdownVisible = !this.dropdownVisible
     },
-    login() {
+    login () {
       this.$refs.ruleForm.validate((valid) => {
         if (!valid) {
           return
@@ -152,7 +152,7 @@ export default {
         location.assign('../user/index.html')
       })
     },
-    showMessage() {
+    showMessage () {
       this.$Message.info('This is a info tip')
     }
   }

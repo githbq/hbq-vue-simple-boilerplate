@@ -55,10 +55,12 @@ export default {
     }
   },
   methods: {
-    setQuery (...args) {
+    setQuery () {
+      const args = [].slice.call(arguments)
       return this.$refs.select.setQuery.apply(this, args)
     },
-    clearSingleSelect (...args) {
+    clearSingleSelect () {
+      const args = [].slice.call(arguments)
       this.$refs.select.clearSingleSelect.apply(this, args)
     },
     self_onChange (value) {
@@ -74,7 +76,8 @@ export default {
       }
       this.$emit('on-change', value, item)
     },
-    self_onQueryChange (...args) {
+    self_onQueryChange () {
+      const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-query-change'].concat(args))
     }
   }

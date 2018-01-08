@@ -44,34 +44,34 @@ export default {
     showSizer: { default: false },
     styles: { default: () => { } }
   },
-  data() {
+  data () {
     return {
       selfCurrent: this.$props.current,
       inputCurrent: this.$props.current
     }
   },
   watch: {
-    current(value) {
+    current (value) {
       this.$data.selfCurrent = value
       this.$data.inputCurrent = value
     }
   },
-  created() {
+  created () {
   },
   methods: {
-    onPageSizeChange(newPageSize) {
+    onPageSizeChange (newPageSize) {
       this.resolveInputCurrent(newPageSize)
       this.$emit.apply('on-page-size-change', newPageSize)
     },
-    onChange(page) {
+    onChange (page) {
       this.$data.selfCurrent = page
       this.$emit('on-change', page)
     },
-    changePage() {
+    changePage () {
       this.resolveInputCurrent()
       this.selfCurrent = this.$data.inputCurrent
     },
-    resolveInputCurrent(newPageSize) {
+    resolveInputCurrent (newPageSize) {
       const maxCurrent = Math.ceil(this.total / (newPageSize || this.pageSize))
       this.$data.inputCurrent = Math.floor(this.$data.inputCurrent)
       this.$data.inputCurrent = this.$data.inputCurrent > maxCurrent ? maxCurrent : this.$data.inputCurrent

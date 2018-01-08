@@ -47,10 +47,12 @@ export default {
     }
   },
   methods: {
-    onSelect (...args) {
+    onSelect () {
+      const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-select'].concat(args))
     },
-    onSearch (...args) {
+    onSearch () {
+      const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-search'].concat(args))
     }
   }

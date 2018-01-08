@@ -74,13 +74,16 @@ export default {
       this.$emit('input', newValue)
       this.$emit.apply(this, ['on-change'].concat([].slice.call(arguments)))
     },
-    onOpenChange (...args) {
+    onOpenChange () {
+      const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-open-change'].concat(args))
     },
-    onOk (...args) {
+    onOk () {
+      const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-ok'].concat(args))
     },
-    onClear (...args) {
+    onClear () {
+      const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-clear'].concat(args))
     }
   }

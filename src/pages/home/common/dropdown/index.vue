@@ -51,10 +51,12 @@ export default {
     }
   },
   methods: {
-    onClick (...args) {
+    onClick () {
+      const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-click'].concat(args))
     },
-    onVisibleChange (...args) {
+    onVisibleChange () {
+      const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-visible-change'].concat(args))
     }
   }
