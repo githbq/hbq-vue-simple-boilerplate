@@ -41,15 +41,15 @@
     },
     data () {
       return {
-        selfValue: this.$props.value,
+        self_value: this.$props.value,
         self_visible: this.$props.visible
       }
     },
     watch: {
       value (newValue) {
-        this.$data.selfValue = newValue
+        this.$data.self_value = newValue
       },
-      selfValue (newValue) {
+      self_value (newValue) {
         this.$emit('input', newValue)
       }
     },

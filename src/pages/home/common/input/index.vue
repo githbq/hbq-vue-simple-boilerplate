@@ -1,7 +1,7 @@
 <template> 
     <IViewInput class="zpfe-iview-input"
      ref="input" 
-    v-model="selfValue" 
+    v-model="self_value" 
     :type="type" 
     :rows="rows" 
     :placeholder="placeholder"
@@ -40,13 +40,13 @@ export default {
     maxlength: { default: null }
   },
   data () {
-    return { selfValue: this.$props.value }
+    return { self_value: this.$props.value }
   },
   watch: {
     value (newValue) {
-      this.$data.selfValue = newValue
+      this.$data.self_value = newValue
     },
-    selfValue (newValue) {
+    self_value (newValue) {
       this.$emit('input', newValue)
     }
   },

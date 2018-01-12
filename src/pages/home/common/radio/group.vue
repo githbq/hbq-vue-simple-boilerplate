@@ -1,7 +1,7 @@
 <template>  
     <IViewRadioGroup 
      class="zpfe-iview-checkbox-group"
-    v-model="selfValue"  
+    v-model="self_value"  
     :size="size"  
     >
     <slot></slot>
@@ -19,13 +19,13 @@ export default {
     size: { default: null }
   },
   data () {
-    return { selfValue: this.$props.value }
+    return { self_value: this.$props.value }
   },
   watch: {
     value (newValue) {
-      this.$data.selfValue = newValue
+      this.$data.self_value = newValue
     },
-    selfValue (newValue) {
+    self_value (newValue) {
       this.$emit('input', newValue)
     }
   },

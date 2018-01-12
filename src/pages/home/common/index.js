@@ -32,5 +32,7 @@ import Dropdown from './dropdown'
 import AutoComplete from './auto-complete'
 // 下拉列表级联
 import SelectCascader from './select-cascader'
+// 上传
+import Upload from './upload'
 // 导出
-export { AutoComplete, SelectCascader, Dropdown, Radio, RadioGroup, Cascader, Checkbox, CheckboxGroup, Modal, Page, Cropper, DatePicker, Input, Select }
+export { Upload, AutoComplete, SelectCascader, Dropdown, Radio, RadioGroup, Cascader, Checkbox, CheckboxGroup, Modal, Page, Cropper, DatePicker, Input, Select }

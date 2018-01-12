@@ -12,7 +12,8 @@
     "iview": "^2.8.0",
     "underscore": "^1.8.3",
     "vue": "^2.4.2",
-    "vue-cropperjs": "^2.2.0"
+    "vue-cropperjs": "^2.2.0",
+    "vue-upload-component": "^2.7.4"
   },
   "devDependencies": {
     "autoprefixer": "^7.1.2",

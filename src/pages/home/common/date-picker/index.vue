@@ -1,7 +1,7 @@
 <template> 
     <DatePicker 
     class="zpfe-iview-date-picker" 
-    v-model="selfValue"
+    v-model="self_value"
     :confirm="confirm"
     :disabled="disabled"
     :type="type"
@@ -55,19 +55,19 @@
       }
     },
     data () {
-      let selfValue = this.$props.value
-      if (typeof selfValue === 'number') {
-        selfValue = new Date(selfValue)
+      let self_value = this.$props.value
+      if (typeof self_value === 'number') {
+        self_value = new Date(self_value)
       }
       return {
-        selfValue: selfValue
+        self_value: self_value
       }
     },
     watch: {
       value (newValue) {
-        this.$data.selfValue = newValue
+        this.$data.self_value = newValue
       },
-      selfValue (newValue) {
+      self_value (newValue) {
         this.$emit('input', newValue)
       }
     },

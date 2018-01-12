@@ -1,7 +1,7 @@
 <template>  
   <IViewCascader 
   class="zpfe-iview-cascader"
-  v-model="selfValue" 
+  v-model="self_value" 
   :data="data"
   :render-format="renderFormat"
   :disabled="disabled"
@@ -57,13 +57,13 @@ export default {
     elementId: { type: String, default: undefined }
   },
   data () {
-    return { selfValue: this.$props.value }
+    return { self_value: this.$props.value }
   },
   watch: {
     value (newValue) {
-      this.$data.selfValue = newValue
+      this.$data.self_value = newValue
     },
-    selfValue (newValue) {
+    self_value (newValue) {
       this.$emit('input', newValue)
     }
   },

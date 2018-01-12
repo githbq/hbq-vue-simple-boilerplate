@@ -1,7 +1,7 @@
 <template>  
      <IViewSelect
      class="zpfe-iview-select" 
-     v-model="selfValue"
+     v-model="self_value"
      :multiple="multiple"
      :disabled="disabled"
      :filterable="filterable"
@@ -44,13 +44,13 @@ export default {
     elementId: { default: undefined }
   },
   data () {
-    return { selfValue: this.$props.value }
+    return { self_value: this.$props.value }
   },
   watch: {
     value (newValue) {
-      this.$data.selfValue = newValue
+      this.$data.self_value = newValue
     },
-    selfValue (newValue) {
+    self_value (newValue) {
       this.$emit('input', newValue)
     }
   },
