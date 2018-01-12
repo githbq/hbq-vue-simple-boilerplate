@@ -36,14 +36,22 @@ inputValue:{{inputValue}}
 <AutoComplete v-model="inputValue" />
 <hr/>
 <button @click="testNotice">testNotice</button>
+<hr/>
+<fieldset >
+  <legend>
+  Upload
+  </legend>
+   <upload>文件上传</upload>
+</fieldset> 
 </div>
 </template>
 
 <script>
-import { Page, AutoComplete, SelectCascader, Cascader, Select as ZPSelect, DatePicker, Input as ZPInput, Dropdown } from './common'
+import { Upload, Page, AutoComplete, SelectCascader, Cascader, Select as ZPSelect, DatePicker, Input as ZPInput, Dropdown } from './common'
 import Dropdown2 from 'iview/src/components/dropdown'
 export default {
-  components: {
+  components: { 
+    Upload,
     Page,
     AutoComplete,
     SelectCascader,
@@ -56,6 +64,7 @@ export default {
   },
   data () {
     return {
+      abc:null,
       selectCascaderConfig: [
         {
           value: 'a1v_0',
