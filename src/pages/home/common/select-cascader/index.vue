@@ -28,7 +28,7 @@
     components: { ZPSelect },
     props: {
       loadingText: { default: '加载中...' },
-      debug: { default: true },
+      debug: { default: false },
       clearable: { default: true },
       getData: {
         default: () => {
