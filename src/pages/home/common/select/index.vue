@@ -15,7 +15,7 @@
      @on-query-change="self_onQueryChange"
      ref="select"
     >
-       <IViewOption v-for="item in data" :value="item[$props.valueField]" :key="item[$props.keyField]">{{ item[$props.labelField] }}</IViewOption>
+       <IViewOption v-for="(item,index) in data" :value="item[$props.valueField]" :key="index">{{ item[$props.labelField] }}</IViewOption>
      </IViewSelect>  
 </template>
 
@@ -32,8 +32,7 @@ export default {
     value: { default: undefined },
     data: { default: () => [] },
     placeholder: { default: '' },
-    valueField: { default: 'value' },
-    keyField: { default: 'key' },
+    valueField: { default: 'value' }, 
     labelField: { default: 'label' },
     disabled: { default: false },
     filterable: { default: false },
