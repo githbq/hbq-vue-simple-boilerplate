@@ -43,14 +43,23 @@ inputValue:{{inputValue}}
   </legend>
    <upload>文件上传</upload>
 </fieldset> 
+<fieldset >
+  <legend>
+  Circle
+  </legend>
+  <zpCircle :percent="80">
+        <span class="demo-Circle-inner" style="font-size:24px">80%</span>
+    </zpCircle>
+</fieldset> 
 </div>
 </template>
 
 <script>
-import { Upload, Page, AutoComplete, SelectCascader, Cascader, Select as ZPSelect, DatePicker, Input as ZPInput, Dropdown } from './common'
+import { Circle as zpCircle , Upload, Page, AutoComplete, SelectCascader, Cascader, Select as ZPSelect, DatePicker, Input as ZPInput, Dropdown } from './common'
 import Dropdown2 from 'iview/src/components/dropdown'
 export default {
-  components: { 
+  components: {
+    zpCircle,
     Upload,
     Page,
     AutoComplete,
@@ -62,9 +71,9 @@ export default {
     ZPInput,
     ZPSelect
   },
-  data () {
+  data() {
     return {
-      abc:null,
+      abc: null,
       selectCascaderConfig: [
         {
           value: 'a1v_0',
@@ -143,17 +152,17 @@ export default {
     }
   },
   methods: {
-    testNotice () {
+    testNotice() {
       this.$Notice.success({
         title: 'Notification title',
         desc: 'This notification does not automatically close, and you need to click the close button to close.',
         duration: 0
       });
     },
-    closeDropdown () {
+    closeDropdown() {
       this.dropdownVisible = !this.dropdownVisible
     },
-    login () {
+    login() {
       this.$refs.ruleForm.validate((valid) => {
         if (!valid) {
           return
@@ -161,7 +170,7 @@ export default {
         location.assign('../user/index.html')
       })
     },
-    showMessage () {
+    showMessage() {
       this.$Message.info('This is a info tip')
     }
   }
