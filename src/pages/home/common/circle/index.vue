@@ -27,13 +27,13 @@ export default {
     trailWidth: { default: 5 },
     trailColor: { default: '#eaeef2' }
   },
-  data() {
+  data () {
     return {}
   },
-  watch: { 
+  watch: {
   },
   methods: {
-   
+
   }
 }
 </script>

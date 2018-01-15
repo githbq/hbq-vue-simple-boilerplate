@@ -8,32 +8,32 @@
      </IViewOption>
 </template>
 
-<script> 
+<script>
 import IViewOption from 'iview/src/components/option'
 export default {
-    components: { 
-        IViewOption
+  components: {
+    IViewOption
+  },
+  props: {
+    value: {
+      type: [String, Number],
+      required: true
     },
-    props: {
-        value: {
-            type: [String, Number],
-            required: true
-        },
-        label: {
-            type: [String, Number]
-        },
-        disabled: {
-            type: Boolean,
-            default: false
-        }
+    label: {
+      type: [String, Number]
     },
-    data() {
-
-    },
-
-    methods: {
-
+    disabled: {
+      type: Boolean,
+      default: false
     }
+  },
+  data () {
+
+  },
+
+  methods: {
+
+  }
 }
 </script>
 <style lang="scss">
