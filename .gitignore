@@ -29,6 +29,6 @@ typings/
 *token*.*
 
 #用户上传文件
-upload/
+/upload/
 package-lock.json
 .awcache
