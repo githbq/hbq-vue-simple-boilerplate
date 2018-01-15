@@ -11,6 +11,8 @@
      @on-select="onSelect"
      @on-search="onSearch"
      > 
+     <slot name="input"></slot>
+     <slot></slot>
      </AutoComplete>
 </template>
 

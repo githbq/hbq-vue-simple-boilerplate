@@ -51,14 +51,31 @@ inputValue:{{inputValue}}
         <span class="demo-Circle-inner" style="font-size:24px">80%</span>
     </zpCircle>
 </fieldset> 
+<fieldset >
+  <legend>
+  AutoComplete
+  </legend>
+ <AutoComplete
+        v-model="value2"
+        @on-search="handleSearch2"
+        placeholder="input here"
+        style="width:200px">
+        <span>sfdsfsfsdfdsdf</span>
+        <zpOption v-for="item in data2" :value="item" :key="item">{{ item }}</zpOption>
+    </AutoComplete>
+    data2:{{data2}}
+</fieldset> 
+
 </div>
 </template>
 
 <script>
-import { Circle as zpCircle , Upload, Page, AutoComplete, SelectCascader, Cascader, Select as ZPSelect, DatePicker, Input as ZPInput, Dropdown } from './common'
+import { Circle as zpCircle, Upload, Page, AutoComplete, SelectCascader, Cascader, Select as ZPSelect, DatePicker, Input as ZPInput, Dropdown } from './common'
 import Dropdown2 from 'iview/src/components/dropdown'
+import zpOption from 'iview/src/components/select/option'
 export default {
   components: {
+    zpOption,
     zpCircle,
     Upload,
     Page,
@@ -73,6 +90,8 @@ export default {
   },
   data() {
     return {
+      value2: '',
+      data2: [],
       abc: null,
       selectCascaderConfig: [
         {
@@ -152,6 +171,13 @@ export default {
     }
   },
   methods: {
+    handleSearch2(value) {
+      this.data2 = !value || value.indexOf('@') >= 0 ? [] : [
+        value + '@qq.com',
+        value + '@sina.com',
+        value + '@163.com'
+      ];
+    },
     testNotice() {
       this.$Notice.success({
         title: 'Notification title',
