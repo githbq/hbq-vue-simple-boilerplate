@@ -21,7 +21,7 @@
 
 <script>
 import IViewSelect from 'iview/src/components/select'
-import IViewOption from 'iview/src/components/option'
+import IViewOption from './option'
 export default {
   components: {
     IViewSelect,

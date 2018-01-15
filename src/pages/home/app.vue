@@ -72,7 +72,7 @@ inputValue:{{inputValue}}
 <script>
 import { Circle as zpCircle, Upload, Page, AutoComplete, SelectCascader, Cascader, Select as ZPSelect, DatePicker, Input as ZPInput, Dropdown } from './common'
 import Dropdown2 from 'iview/src/components/dropdown'
-import zpOption from 'iview/src/components/select/option'
+import { Option as zpOption } from './common/auto-complete'
 export default {
   components: {
     zpOption,
