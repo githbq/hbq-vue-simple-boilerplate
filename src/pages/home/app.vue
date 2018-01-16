@@ -55,13 +55,14 @@ inputValue:{{inputValue}}
   <legend>
   AutoComplete
   </legend>
+  value2:{{value2}}
  <AutoComplete
         v-model="value2"
         @on-search="handleSearch2"
         placeholder="input here"
-        style="width:200px">
-        <span>sfdsfsfsdfdsdf</span>
-        <zpOption v-for="item in data2" :value="item" :key="item">{{ item }}</zpOption>
+        style="width:200px"> 
+        <ul v-if="data2&&data2.length===0" class="zpfe-iview-select-not-found"><li>无匹配数据</li></ul>
+        <zpOption v-for="(item,index) in data2" :label="item.label" :value="item.value" :key="index">{{ item.label }}</zpOption>
     </AutoComplete>
     data2:{{data2}}
 </fieldset> 
@@ -90,7 +91,7 @@ export default {
   },
   data() {
     return {
-      value2: '',
+      value2: '23312',
       data2: [],
       abc: null,
       selectCascaderConfig: [
@@ -172,10 +173,11 @@ export default {
   },
   methods: {
     handleSearch2(value) {
+      debugger
       this.data2 = !value || value.indexOf('@') >= 0 ? [] : [
-        value + '@qq.com',
-        value + '@sina.com',
-        value + '@163.com'
+        { value: value + '@qq.com', label: value + '@qq.com' },
+        { value: value + '@sina.com', label: value + '@sina.com' },
+        { value:  value + '@163.com', label: value + '@163.com' }
       ];
     },
     testNotice() {

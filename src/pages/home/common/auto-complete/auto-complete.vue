@@ -1,6 +1,7 @@
 <template> 
      <AutoComplete class="zpfe-iview-auto_complete"
      :data="data"
+     v-model="self_value"
      :clearable="clearable"
      :isabled="isabled"
      :size="size"
