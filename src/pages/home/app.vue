@@ -66,16 +66,31 @@ inputValue:{{inputValue}}
     </AutoComplete>
     data2:{{data2}}
 </fieldset> 
-
+<fieldset >
+  <legend>
+  zp-input
+  </legend>
+  value3:{{value3}}
+ <ZPInput type="text-area" v-model="value3" />
+</fieldset> 
+<fieldset >
+  <legend>
+  zp-rate
+  </legend>
+  value4:{{value4}}
+ <Rate v-model="value4" />
+</fieldset> 
 </div>
 </template>
 
 <script>
-import { Circle as zpCircle, Upload, Page, AutoComplete, SelectCascader, Cascader, Select as ZPSelect, DatePicker, Input as ZPInput, Dropdown } from './common'
+import { Rate, Circle as zpCircle, Upload, Page, AutoComplete, SelectCascader, Cascader, Select as ZPSelect, DatePicker, Input as ZPInput, Dropdown } from './common'
 import Dropdown2 from 'iview/src/components/dropdown'
 import { Option as zpOption } from './common/auto-complete'
 export default {
   components: {
+    Rate,
+    ZPInput,
     zpOption,
     zpCircle,
     Upload,
@@ -91,6 +106,8 @@ export default {
   },
   data() {
     return {
+      value4:4,
+      value3:'555',
       value2: '23312',
       data2: [],
       abc: null,
@@ -173,7 +190,6 @@ export default {
   },
   methods: {
     handleSearch2(value) {
-      debugger
       this.data2 = !value || value.indexOf('@') >= 0 ? [] : [
         { value: value + '@qq.com', label: value + '@qq.com' },
         { value: value + '@sina.com', label: value + '@sina.com' },

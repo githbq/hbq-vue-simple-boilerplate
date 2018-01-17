@@ -1,6 +1,4 @@
-// 公共组件引用入口
-
-// iview 在低版本ie上会报一些错的兼容性填充
+// 公共组件引用入口 iview 在低版本ie上会报一些错的兼容性填充
 import './iview-polyfill'
 // ivew的样式
 import 'iview/dist/styles/iview.css'
@@ -36,5 +34,25 @@ import SelectCascader from './select-cascader'
 import Upload from './upload'
 // 圆环
 import Circle from './circle'
+// 星星评分插件
+import Rate from './rate'
 // 导出
-export { Circle, Upload, AutoComplete, SelectCascader, Dropdown, Radio, RadioGroup, Cascader, Checkbox, CheckboxGroup, Modal, Page, Cropper, DatePicker, Input, Select }
+export {
+  Rate,
+  Circle,
+  Upload,
+  AutoComplete,
+  SelectCascader,
+  Dropdown,
+  Radio,
+  RadioGroup,
+  Cascader,
+  Checkbox,
+  CheckboxGroup,
+  Modal,
+  Page,
+  Cropper,
+  DatePicker,
+  Input,
+  Select
+}
