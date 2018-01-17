@@ -4,18 +4,37 @@
 
 ### 操作上传
 ```html
-<upload
-    ref="upload"
+<template>
+  <div id="root" class="zp">
+    <Upload 
+    ref="fileUploader"
     name="content"
     v-model="files"
-    post-action="/post.method" 
-    @input-file="inputFile"
-    @input-filter="inputFilter"
+    post-action="http://i.zhaopin.com/resume/uploadextend/uploadimage?at=257961a2d1354747b701bbaf22094bf9&rt=4ebff81fe86342a5ae75748aa8694243&filetype=1" 
   >
-  上传文件
-  </upload>
-  <button v-show="!$refs.upload || !$refs.upload.active" @click.prevent="$refs.upload.active = true" type="button">开始上传</button>
-  <button v-show="$refs.upload && $refs.upload.active" @click.prevent="$refs.upload.active = false" type="button">停止上传</button>
+  <div style="border:2px solid red; paddding:10px;">点此上传文件</div>
+  </Upload>
+  <button @click="startUpload">开始上传</button>
+  </div>
+</template> 
+```
+```js
+import { Upload } from 'components/common'
+export default {
+  components: {
+    Upload
+  },
+  data () {
+    return {
+      files: []
+    }
+  },
+  methods: {
+    startUpload () {
+      this.$refs.fileUploader.upload()
+    }
+  }
+}; 
 ```
 
 ### 方法

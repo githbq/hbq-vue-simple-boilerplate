@@ -13,6 +13,8 @@
     :dropDirectory="dropDirectory"
     :post-action="postAction"
     :data="data"
+    :headers="headers"
+    :name="name"
     @input-file="inputFile"
     @input-filter="inputFilter"
     >
@@ -21,12 +23,21 @@
 </template>
 
 <script>
-import Upload from 'vue-upload-component'
+import Upload from './vue-upload-component'
 export default {
   components: {
     Upload
   },
   props: {
+    headers: {
+      default: () => {
+        return {
+          // 'Content-Type': 'multipart/form-data'
+          // 'Access-Control-Allow-Origin': '*'
+        }
+      }
+    },
+    name: { default: 'content' },
     value: { default: () => [] },
     // image/png,image/gif,image/jpeg
     accept: { default: '' },
