@@ -32,7 +32,7 @@ export default {
     value: { default: undefined },
     data: { default: () => [] },
     placeholder: { default: '' },
-    valueField: { default: 'value' }, 
+    valueField: { default: 'value' },
     labelField: { default: 'label' },
     disabled: { default: false },
     filterable: { default: false },

@@ -48,33 +48,33 @@ export default {
     // 上传文件时附带的其它数据
     data: { default: () => { } }
   },
-  data() {
+  data () {
     return { self_value: this.$props.value }
   },
   watch: {
-    value(newValue) {
+    value (newValue) {
       this.$data.self_value = newValue
     },
-    self_value(newValue) {
+    self_value (newValue) {
       this.$emit('input', newValue)
     }
   },
   methods: {
-    upload() {
+    upload () {
       this.$refs.upload.active = true
     },
-    stopUpload() {
+    stopUpload () {
       this.$refs.upload.active = false
     },
-    inputFile() {
+    inputFile () {
       const args = [].slice.call(arguments)
       this.$emit.apply(this, ['input-file'].concat(args))
     },
-    inputFilter() {
+    inputFilter () {
       const args = [].slice.call(arguments)
       this.$emit.apply(this, ['input-filter'].concat(args))
     },
-    getUploadRef() {
+    getUploadRef () {
       return this.$refs.upload
     }
   }
