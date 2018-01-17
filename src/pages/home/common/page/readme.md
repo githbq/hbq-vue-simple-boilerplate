@@ -1,4 +1,4 @@
-# zpfe 分页组件 powerd by iview.page
+# zpfe 分页组件 powered by iview.page
 
 官方API
 <https://www.iviewui.com/components/page>

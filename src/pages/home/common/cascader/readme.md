@@ -1,4 +1,4 @@
-# zpfe 下拉级联组件 powerd by iview.cascader
+# zpfe 下拉级联组件 powered by iview.cascader
 <https://www.iviewui.com/components/cascader>
 
 ```html

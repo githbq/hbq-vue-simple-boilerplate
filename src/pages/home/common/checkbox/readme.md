@@ -1,4 +1,4 @@
-# zpfe 多选组件 powerd by iview.checkbox
+# zpfe 多选组件 powered by iview.checkbox
 
 官方API
 <https://www.iviewui.com/components/checkbox>

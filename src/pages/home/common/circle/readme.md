@@ -1,4 +1,4 @@
-# zpfe 圆圈进度环组件 powerd by iview.circle
+# zpfe 圆圈进度环组件 powered by iview.circle
 <https://www.iviewui.com/components/circle>
 
 ```html

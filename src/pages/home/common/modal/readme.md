@@ -1,4 +1,4 @@
-# zpfe 弹窗组件 powerd by iview.modal
+# zpfe 弹窗组件 powered by iview.modal
 
 官方API
 <https://www.iviewui.com/components/modal>

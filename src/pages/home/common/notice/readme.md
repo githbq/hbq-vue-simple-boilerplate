@@ -1,4 +1,4 @@
-# zpfe 通知组件 powerd by iview.notice
+# zpfe 通知组件 powered by iview.notice
 <https://www.iviewui.com/components/notice>
 
 ```js

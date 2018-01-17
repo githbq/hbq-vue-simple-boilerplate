@@ -1,4 +1,4 @@
-# zpfe 星星评分 powerd by iview.rate
+# zpfe 星星评分 powered by iview.rate
 <https://www.iviewui.com/components/rate>
 
 ```html

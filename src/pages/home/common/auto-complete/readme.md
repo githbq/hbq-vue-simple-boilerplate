@@ -1,4 +1,4 @@
-# zpfe 输入框组件 powerd by iview.auto-complete
+# zpfe 输入框组件 powered by iview.auto-complete
 <https://www.iviewui.com/components/auto-complete>
 
 ```html

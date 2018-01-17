@@ -1,4 +1,4 @@
-# zpfe 加载条 powerd by iview.loading-bar
+# zpfe 加载条 powered by iview.loading-bar
 <https://www.iviewui.com/components/loading-bar>
 
 ```js
