@@ -10,13 +10,14 @@
     ref="fileUploader"
     name="content"
     v-model="files"
-    post-action="http://i.zhaopin.com/resume/uploadextend/uploadimage?at=257961a2d1354747b701bbaf22094bf9&rt=4ebff81fe86342a5ae75748aa8694243&filetype=1" 
+    post-action="http://i.zhaopin.com/resume/uploadextend/uploadimage?at=eab321ec0dc94b48b106a5bb0a16d527&rt=98a739be827647b2bdd7ad54d4a83505&filetype=1" 
+    @input-file="inputFile"
   >
   <div style="border:2px solid red; paddding:10px;">点此上传文件</div>
   </Upload>
   <button @click="startUpload">开始上传</button>
   </div>
-</template> 
+</template>
 ```
 ```js
 import { Upload } from 'components/common'
@@ -32,9 +33,11 @@ export default {
   methods: {
     startUpload () {
       this.$refs.fileUploader.upload()
+    },
+    inputFile (e) {
     }
   }
-}; 
+};
 ```
 
 ### 方法
