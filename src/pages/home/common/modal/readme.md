@@ -3,7 +3,7 @@
 官方API
 <https://www.iviewui.com/components/modal>
 ```js
-import page from 'components/common/modal.vue'
+import { Modal } from 'components/common'
 // .
 // .
 // . 
