@@ -1,5 +1,12 @@
 <template>
 <div>
+<fieldset >
+  <legend>
+  ZPSelect2
+  </legend>
+  value5:{{value5}}
+ <ZPSelect2 v-model="value5" />
+</fieldset> 
 <fieldset>
   <legend>page</legend>
   <Page :page-size="20" :total="1000" :showSizer="true"/>
@@ -71,7 +78,7 @@ inputValue:{{inputValue}}
   zp-input
   </legend>
   value3:{{value3}}
- <ZPInput type="text-area" v-model="value3" />
+ <ZPInput type="textarea" v-model="value3" />
 </fieldset> 
 <fieldset >
   <legend>
@@ -80,15 +87,19 @@ inputValue:{{inputValue}}
   value4:{{value4}}
  <Rate v-model="value4" />
 </fieldset> 
+
 </div>
 </template>
 
 <script>
+import ZPSelect2 from './components/zp-select'
 import { Rate, Circle as zpCircle, Upload, Page, AutoComplete, SelectCascader, Cascader, Select as ZPSelect, DatePicker, Input as ZPInput, Dropdown } from './common'
 import Dropdown2 from 'iview/src/components/dropdown'
 import { Option as zpOption } from './common/auto-complete'
 export default {
   components: {
+    ...{},
+    ZPSelect2,
     Rate,
     ZPInput,
     zpOption,
@@ -106,6 +117,7 @@ export default {
   },
   data() {
     return {
+      value5:'b',
       value4:4,
       value3:'555',
       value2: '23312',
