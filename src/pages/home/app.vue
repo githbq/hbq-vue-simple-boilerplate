@@ -1,104 +1,127 @@
 <template>
 <div>
-<fieldset >
-  <legend>
-  ZPSelect2
-  </legend>
-  value5:{{value5}}
- <ZPSelect2 v-model="value5" />
-</fieldset> 
-<fieldset>
-  <legend>page</legend>
-  <Page :page-size="20" :total="1000" :showSizer="true"/>
-</fieldset>
-<hr/>
-<DatePicker v-model="abc" type="month"></DatePicker>
-abc:{{abc}}
-<hr/>
-<ZPInput v-model="inputValue" class="fffffffffff"/>
-inputValue:{{inputValue}}
-<hr/>
-<ZPSelect :multiple="false" key-field="value" v-model="selectValue" :data="items" />
-<hr/>
-<Cascader size="large" v-model="cascaderValue" :data="cascaderData"></Cascader> 
-<hr/>
-<button @click="showMessage">show message</button>
-<hr/>
-<Dropdown style="border:2px solid red;margin-left:50px;" :visible="dropdownVisible" :data="dropdownData" trigger="custom">
-  <div @click="dropdownVisible=true">你好111111111111111</div> 
-  <div slot="content">
-    <div style="border:2px solid red;width:500px;height:500px;"> how are you  </div>
-    <button @click="closeDropdown"> dropdownVisible:{{dropdownVisible}} </button>
-  </div> 
-</Dropdown>
+  <!--
+  <fieldset >
+    <legend>
+    ZPSelect2
+    </legend>
+    value5:{{value5}}
+  <ZPSelect2 v-model="value5" />
+  </fieldset> 
+  <fieldset>
+    <legend>page</legend>
+    <Page :page-size="20" :total="1000" :showSizer="true"/>
+  </fieldset>
+  <hr/>
+  <DatePicker v-model="abc" type="month"></DatePicker>
+  abc:{{abc}}
+  <hr/>
+  <ZPInput v-model="inputValue" class="fffffffffff"/>
+  inputValue:{{inputValue}}
+  <hr/>
+  <ZPSelect :multiple="false" key-field="value" v-model="selectValue" :data="items" />
+  <hr/>
+  <Cascader size="large" v-model="cascaderValue" :data="cascaderData"></Cascader> 
+  <hr/>
+  <button @click="showMessage">show message</button>
+  <hr/>
+  <Dropdown style="border:2px solid red;margin-left:50px;" :visible="dropdownVisible" :data="dropdownData" trigger="custom">
+    <div @click="dropdownVisible=true">你好111111111111111</div> 
+    <div slot="content">
+      <div style="border:2px solid red;width:500px;height:500px;"> how are you  </div>
+      <button @click="closeDropdown"> dropdownVisible:{{dropdownVisible}} </button>
+    </div> 
+  </Dropdown>
 
-<hr/>
+  <hr/>
+  <fieldset >
+    <legend>
+    SelectCascader
+    </legend>
+    <SelectCascader :config="selectCascaderConfig"/> 
+  </fieldset> 
+  <hr/>
+  <AutoComplete v-model="inputValue" />
+  <hr/>
+  <button @click="testNotice">testNotice</button>
+  <hr/>
+  <fieldset >
+    <legend>
+    Upload
+    </legend>
+    <upload>文件上传</upload>
+  </fieldset> 
+  <fieldset >
+    <legend>
+    Circle
+    </legend>
+    <zpCircle :percent="80">
+          <span class="demo-Circle-inner" style="font-size:24px">80%</span>
+      </zpCircle>
+  </fieldset> 
+  <fieldset >
+    <legend>
+    AutoComplete
+    </legend>
+    value2:{{value2}}
+  <AutoComplete
+          v-model="value2"
+          @on-search="handleSearch2"
+          placeholder="input here"
+          style="width:200px"> 
+          <ul v-if="data2&&data2.length===0" class="zpfe-iview-select-not-found"><li>无匹配数据</li></ul>
+          <zpOption v-for="(item,index) in data2" :label="item.label" :value="item.value" :key="index">{{ item.label }}</zpOption>
+      </AutoComplete>
+      data2:{{data2}}
+  </fieldset> 
+  <fieldset >
+    <legend>
+    zp-input
+    </legend>
+    value3:{{value3}}
+  <ZPInput type="textarea" v-model="value3" />
+  </fieldset> 
+  <fieldset >
+    <legend>
+    zp-rate
+    </legend>
+    value4:{{value4}}
+  <Rate v-model="value4" />
+  </fieldset> 
+   -->
 <fieldset >
   <legend>
-  SelectCascader
+  轮播图 
   </legend>
-  <SelectCascader :config="selectCascaderConfig"/> 
+  <Carousel autoplay v-model="carouselValue" loop>
+        <CarouselItem>
+            <div class="demo-carousel">1</div>
+        </CarouselItem>
+        <CarouselItem>
+            <div class="demo-carousel">2</div>
+        </CarouselItem>
+        <CarouselItem>
+            <div class="demo-carousel">3</div>
+        </CarouselItem>
+        <CarouselItem>
+            <div class="demo-carousel">4</div>
+        </CarouselItem>
+    </Carousel>
 </fieldset> 
-<hr/>
-<AutoComplete v-model="inputValue" />
-<hr/>
-<button @click="testNotice">testNotice</button>
-<hr/>
-<fieldset >
-  <legend>
-  Upload
-  </legend>
-   <upload>文件上传</upload>
-</fieldset> 
-<fieldset >
-  <legend>
-  Circle
-  </legend>
-  <zpCircle :percent="80">
-        <span class="demo-Circle-inner" style="font-size:24px">80%</span>
-    </zpCircle>
-</fieldset> 
-<fieldset >
-  <legend>
-  AutoComplete
-  </legend>
-  value2:{{value2}}
- <AutoComplete
-        v-model="value2"
-        @on-search="handleSearch2"
-        placeholder="input here"
-        style="width:200px"> 
-        <ul v-if="data2&&data2.length===0" class="zpfe-iview-select-not-found"><li>无匹配数据</li></ul>
-        <zpOption v-for="(item,index) in data2" :label="item.label" :value="item.value" :key="index">{{ item.label }}</zpOption>
-    </AutoComplete>
-    data2:{{data2}}
-</fieldset> 
-<fieldset >
-  <legend>
-  zp-input
-  </legend>
-  value3:{{value3}}
- <ZPInput type="textarea" v-model="value3" />
-</fieldset> 
-<fieldset >
-  <legend>
-  zp-rate
-  </legend>
-  value4:{{value4}}
- <Rate v-model="value4" />
-</fieldset> 
-
 </div>
 </template>
 
 <script>
 import ZPSelect2 from './components/zp-select'
+import { Carousel, CarouselItem } from './common/carousel'
 import { Rate, Circle as zpCircle, Upload, Page, AutoComplete, SelectCascader, Cascader, Select as ZPSelect, DatePicker, Input as ZPInput, Dropdown } from './common'
 import Dropdown2 from 'iview/src/components/dropdown'
 import { Option as zpOption } from './common/auto-complete'
 export default {
   components: {
     ...{},
+    CarouselItem,
+    Carousel,
     ZPSelect2,
     Rate,
     ZPInput,
@@ -117,9 +140,10 @@ export default {
   },
   data() {
     return {
-      value5:'b',
-      value4:4,
-      value3:'555',
+      carouselValue: 2,
+      value5: 'b',
+      value4: 4,
+      value3: '555',
       value2: '23312',
       data2: [],
       abc: null,
@@ -205,7 +229,7 @@ export default {
       this.data2 = !value || value.indexOf('@') >= 0 ? [] : [
         { value: value + '@qq.com', label: value + '@qq.com' },
         { value: value + '@sina.com', label: value + '@sina.com' },
-        { value:  value + '@163.com', label: value + '@163.com' }
+        { value: value + '@163.com', label: value + '@163.com' }
       ];
     },
     testNotice() {

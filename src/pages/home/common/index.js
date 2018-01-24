@@ -34,10 +34,13 @@ import SelectCascader from './select-cascader'
 import Upload from './upload'
 // 圆环
 import Circle from './circle'
-// 星星评分插件
+// 星星评分组件
 import Rate from './rate'
+// 走马灯 || 轮播图组件
+import Carousel from './carousel'
 // 导出
 export {
+  Carousel,
   Rate,
   Circle,
   Upload,
