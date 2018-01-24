@@ -27,7 +27,7 @@ import Cascader from './cascader'
 // 下拉弹层组件
 import Dropdown from './dropdown'
 // 自动完成
-import AutoComplete from './auto-complete'
+import { AutoComplete, Option } from './auto-complete'
 // 下拉列表级联
 import SelectCascader from './select-cascader'
 // 上传
@@ -45,6 +45,7 @@ export {
   Circle,
   Upload,
   AutoComplete,
+  Option,
   SelectCascader,
   Dropdown,
   Radio,
