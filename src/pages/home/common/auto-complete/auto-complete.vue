@@ -9,6 +9,7 @@
      :filter-method="filterMethod"
      :transfer="transfer"
      :element-id="elementId"
+     :placeholder="placeholder"
      @on-select="onSelect"
      @on-search="onSearch"
      > 
