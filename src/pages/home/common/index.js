@@ -27,7 +27,7 @@ import Cascader from './cascader'
 // 下拉弹层组件
 import Dropdown from './dropdown'
 // 自动完成
-import { AutoComplete, Option } from './auto-complete'
+import {AutoComplete, Option} from './auto-complete'
 // 下拉列表级联
 import SelectCascader from './select-cascader'
 // 上传
@@ -38,8 +38,11 @@ import Circle from './circle'
 import Rate from './rate'
 // 走马灯 || 轮播图组件
 import Carousel from './carousel'
+// 图标
+import Icon from './icon'
 // 导出
 export {
+  Icon,
   Carousel,
   Rate,
   Circle,
