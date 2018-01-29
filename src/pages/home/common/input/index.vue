@@ -1,26 +1,25 @@
-<template> 
-    <IViewInput class="zpfe-iview-input"
-     ref="input" 
-    v-model="self_value" 
-    :type="type" 
-    :rows="rows" 
-    :placeholder="placeholder"
-    :autofocus="autofocus"
-    :readonly="readonly"
-    :disabled="disabled"
-    :maxlength="maxlength"
-    @on-enter="onEnter"
-    @on-click="onClick"
-    @on-change="onChange"
-    @on-focus="onFocus"
-    @on-blur="onBlur"
-    @on-keyup="onKeyup"
-    @on-keydown="onKeydown"
-    @on-keypress="onKeypress"
-    >
+<template>
+  <IViewInput class="zpfe-iview-input"
+              ref="input"
+              v-model="self_value"
+              :type="type"
+              :rows="rows"
+              :placeholder="placeholder"
+              :autofocus="autofocus"
+              :readonly="readonly"
+              :disabled="disabled"
+              :maxlength="maxlength"
+              @on-enter="onEnter"
+              @on-click="onClick"
+              @on-change="onChange"
+              @on-focus="onFocus"
+              @on-blur="onBlur"
+              @on-keyup="onKeyup"
+              @on-keydown="onKeydown"
+              @on-keypress="onKeypress">
     <slot name="prepend"></slot>
     <slot name="append"></slot>
-    </IViewInput> 
+  </IViewInput>
 </template>
 
 <script>
@@ -30,6 +29,7 @@ export default {
     IViewInput
   },
   props: {
+    autosize: { default: false },
     placeholder: { default: '' },
     value: { default: undefined },
     type: { default: undefined },
@@ -37,7 +37,12 @@ export default {
     autofocus: { default: false },
     readonly: { default: false },
     disabled: { default: false },
-    maxlength: { default: null }
+    maxlength: { default: null },
+    number: { default: false },
+    autocomplete: { default: 'off' },
+    elementId: { default: undefined },
+    spellcheck: { default: false }
+
   },
   data () {
     return { self_value: this.$props.value }
@@ -91,5 +96,10 @@ export default {
 </script>
 <style lang="scss">
 .zpfe-iview-input {
+  input,
+  textarea {
+    border-radius: 0;
+    word-break: break-all;
+  }
 }
 </style>

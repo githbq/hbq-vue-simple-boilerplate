@@ -36,19 +36,19 @@ export default {
     arrow: { default: 'hover' },
     easing: { default: 'ease' }
   },
-  data() {
+  data () {
     return { self_value: this.$props.value }
   },
   watch: {
-    value(newValue) {
+    value (newValue) {
       this.$data.self_value = newValue
     },
-    self_value(newValue) {
+    self_value (newValue) {
       this.$emit('input', newValue)
     }
   },
   methods: {
-    onChange() {
+    onChange () {
       const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-change'].concat(args))
     }

@@ -20,6 +20,7 @@
 
 <script>
 import AutoComplete from 'iview/src/components/auto-complete'
+import debounce from 'lodash.debounce'
 export default {
   components: {
     AutoComplete
@@ -55,10 +56,10 @@ export default {
       const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-select'].concat(args))
     },
-    onSearch () {
+    onSearch: debounce(function () {
       const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-search'].concat(args))
-    }
+    }, 250)
   }
 }
 </script>

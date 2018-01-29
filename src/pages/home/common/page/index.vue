@@ -1,25 +1,25 @@
 <template>
   <div class="zpfe-iview-page">
-    <Page
-      class-name="zpfe"
-      :total="total"
-      :current.sync="selfCurrent"
-      :pageSize="pageSize"
-      :pageSizeOpts="pageSizeOpts"
-      :placement="placement"
-      :size="size"
-      :simple="simple"
-      :showTotal="showTotal"
-      :showSizer="showSizer"
-      :styles="styles"
-      @on-change="onChange"
-      @on-page-size-change="onPageSizeChange"
-    >
+    <Page class-name="zpfe"
+          :total="total"
+          :current.sync="selfCurrent"
+          :pageSize="pageSize"
+          :pageSizeOpts="pageSizeOpts"
+          :placement="placement"
+          :size="size"
+          :simple="simple"
+          :showTotal="showTotal"
+          :showSizer="showSizer"
+          :styles="styles"
+          @on-change="onChange"
+          @on-page-size-change="onPageSizeChange">
     </Page>
     <div class="ivu-page-options-elevator">
       <span class="text-go">到</span>
-      <input type="text" v-model.number="inputCurrent">
-      <button class="ivu-page-options-goto" @click="changePage">确定</button>
+      <input type="text"
+             v-model.number="inputCurrent">
+      <button class="ivu-page-options-goto"
+              @click="changePage">确定</button>
     </div>
   </div>
 </template>
@@ -76,6 +76,7 @@ export default {
       this.$data.inputCurrent = Math.floor(this.$data.inputCurrent)
       this.$data.inputCurrent = this.$data.inputCurrent > maxCurrent ? maxCurrent : this.$data.inputCurrent
       this.$data.inputCurrent = this.$data.inputCurrent >= 1 ? this.$data.inputCurrent : 1
+      this.$emit('on-change', this.$data.inputCurrent)
     }
   }
 }

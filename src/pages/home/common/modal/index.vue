@@ -66,6 +66,44 @@ export default {
       left: 50%;
       transform: translate(-50%, -50%);
     }
+    .ivu-modal-content{
+      border-radius: 0;
+      padding: 20px 30px;
+    }
+    .ivu-modal-close{
+      top: 20px;
+      right: 40px;
+    }
+    .ivu-modal-header{
+      border:none;
+      .ivu-modal-header-inner{
+        font-size: 16px;
+        color: #333333;
+      }
+    }
+    .ivu-modal-body{
+      font-size: 16px;
+      color: #666666;
+    }
+    .ivu-modal-footer{
+      text-align: center;
+      border:none;
+      .ivu-btn-large{
+        width: 75px;
+        line-height: 19px;
+        height: 32px;
+        border-radius: 100px;
+        &:nth-child(1){
+          border: 1px solid #DCDCDC;
+          color: #999999;
+          margin-right: 10px;
+          &:hover{
+            border: 1px solid #cdcdcd;
+            color: #666;
+          }
+        }
+      }
+    }
   }
 }
 </style>

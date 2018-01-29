@@ -1,22 +1,21 @@
-<template> 
-    <vue-cropper
-        class="zpfe-iview-cropper" 
-        ref="cropper"
-        :guides="guides"
-        :view-mode="viewMode"
-        :drag-mode="dragMode"
-        :auto-crop-area="autoCropArea"
-        :min-container-width="minContainerWidth"
-        :min-container-height="minContainerHeight"
-        :background="background"
-        :rotatable="rotatable"
-        :src="imgSrc"
-        :alt="alt"
-        :img-style="imgStyle"
-        :auto-crop="autoCrop"
-        :highlight="highlight"
-        >
-    </vue-cropper> 
+<template>
+  <vue-cropper class="zpfe-iview-cropper"
+               ref="cropper"
+               :guides="guides"
+               :view-mode="viewMode"
+               :drag-mode="dragMode"
+               :auto-crop-area="autoCropArea"
+               :min-container-width="minContainerWidth"
+               :min-container-height="minContainerHeight"
+               :background="background"
+               :rotatable="rotatable"
+               :src="imgSrc"
+               :alt="alt"
+               :img-style="imgStyle"
+               :auto-crop="autoCrop"
+               :highlight="highlight"
+               :aspectRatio="1">
+  </vue-cropper>
 </template>
 
 <script>
@@ -50,13 +49,16 @@ export default {
     imgSrc (newValue) {
       if (newValue) {
         this.$refs.cropper.replace(newValue)
-        this.$emit('on-img-load', this.getImgBase64())
+        // this.$emit('on-img-load', this.getImgBase64())
       }
     }
   },
   methods: {
     getImgBase64 () {
       return this.$refs.cropper.getCroppedCanvas().toDataURL()
+    },
+    getImgBlob (cb, mimeType, qualityArg) {
+      return this.$refs.cropper.getCroppedCanvas().toBlob(cb, mimeType, qualityArg)
     },
     rotate (deg = 90) {
       this.$refs.cropper.rotate(deg);
