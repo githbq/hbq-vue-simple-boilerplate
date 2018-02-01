@@ -1,21 +1,22 @@
-<template> 
-     <AutoComplete class="zpfe-iview-auto_complete"
-     :data="data"
-     v-model="self_value"
-     :clearable="clearable"
-     :isabled="isabled"
-     :size="size"
-     :icon="icon"
-     :filter-method="filterMethod"
-     :transfer="transfer"
-     :element-id="elementId"
-     :placeholder="placeholder"
-     @on-select="onSelect"
-     @on-search="onSearch"
-     > 
-     <slot name="input"></slot>
-     <slot></slot>
-     </AutoComplete>
+<template>
+  <AutoComplete class="zpfe-iview-auto_complete"
+                :data="data"
+                v-model="self_value"
+                :clearable="clearable"
+                :isabled="isabled"
+                :size="size"
+                :icon="icon"
+                :filter-method="filterMethod"
+                :transfer="transfer"
+                :element-id="elementId"
+                :placeholder="placeholder"
+                @on-select="onSelect"
+                @on-search="onSearch">
+    <slot name="input"></slot>
+    <div>
+      <slot></slot>
+    </div>
+  </AutoComplete>
 </template>
 
 <script>
@@ -40,19 +41,19 @@ export default {
     transfer: { default: false },
     elementId: { default: null }
   },
-  data () {
+  data() {
     return { self_value: this.$props.value }
   },
   watch: {
-    value (newValue) {
+    value(newValue) {
       this.$data.self_value = newValue
     },
-    self_value (newValue) {
+    self_value(newValue) {
       this.$emit('input', newValue)
     }
   },
   methods: {
-    onSelect () {
+    onSelect() {
       const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-select'].concat(args))
     },
