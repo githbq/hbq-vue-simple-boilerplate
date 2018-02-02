@@ -1,5 +1,6 @@
 <template>  
     <IViewCheckbox 
+    onselectstart="return false"
      class="zpfe-iview-checkbox"
     v-model="self_value" 
     :label="label" 

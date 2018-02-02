@@ -41,19 +41,19 @@ export default {
     transfer: { default: false },
     elementId: { default: null }
   },
-  data() {
+  data () {
     return { self_value: this.$props.value }
   },
   watch: {
-    value(newValue) {
+    value (newValue) {
       this.$data.self_value = newValue
     },
-    self_value(newValue) {
+    self_value (newValue) {
       this.$emit('input', newValue)
     }
   },
   methods: {
-    onSelect() {
+    onSelect () {
       const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-select'].concat(args))
     },
@@ -72,6 +72,9 @@ export default {
   }
   .ivu-input {
     border-radius: 0px;
+  }
+  .ivu-select-dropdown.ivu-auto-complete{
+    max-height:500px;
   }
 }
 </style>

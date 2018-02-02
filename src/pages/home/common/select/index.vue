@@ -1,22 +1,23 @@
-<template>  
-     <IViewSelect
-     class="zpfe-iview-select" 
-     v-model="self_value"
-     :multiple="multiple"
-     :disabled="disabled"
-     :filterable="filterable"
-     :clearable="clearable"
-     :not-found-text="notFoundText"
-     :label-in-value="labelInValue"
-     :transfer="transfer"
-     :element-id="elementId"
-     :placeholder="placeholder"
-     @on-change="self_onChange"
-     @on-query-change="self_onQueryChange"
-     ref="select"
-    >
-       <IViewOption v-for="(item,index) in data" :value="item[$props.valueField]" :key="index">{{ item[$props.labelField] }}</IViewOption>
-     </IViewSelect>  
+<template>
+  <IViewSelect onselectstart="return false"
+               class="zpfe-iview-select"
+               v-model="self_value"
+               :multiple="multiple"
+               :disabled="disabled"
+               :filterable="filterable"
+               :clearable="clearable"
+               :not-found-text="notFoundText"
+               :label-in-value="labelInValue"
+               :transfer="transfer"
+               :element-id="elementId"
+               :placeholder="placeholder"
+               @on-change="self_onChange"
+               @on-query-change="self_onQueryChange"
+               ref="select">
+    <IViewOption v-for="(item,index) in data"
+                 :value="item[$props.valueField]"
+                 :key="index">{{ item[$props.labelField] }}</IViewOption>
+  </IViewSelect>
 </template>
 
 <script>

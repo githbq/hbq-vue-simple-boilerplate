@@ -3,6 +3,7 @@
      :value="value"
      :label="label"
      :disabled="disabled"
+      onselectstart="return false"
      >
         <slot></slot>
      </IViewOption>

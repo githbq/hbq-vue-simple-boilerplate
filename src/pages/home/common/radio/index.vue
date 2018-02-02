@@ -1,17 +1,16 @@
-<template>  
-    <IViewRadio
-     class="zpfe-iview-radio"
-    v-model="self_value" 
-    :label="label" 
-    :disabled="disabled" 
-    :indeterminate="indeterminate" 
-    :size="size" 
-    :trueValue="trueValue" 
-    :falseValue="falseValue"
-    @on-change="onChange" 
-    >
+<template>
+  <IViewRadio onselectstart="return false"
+              class="zpfe-iview-radio"
+              v-model="self_value"
+              :label="label"
+              :disabled="disabled"
+              :indeterminate="indeterminate"
+              :size="size"
+              :trueValue="trueValue"
+              :falseValue="falseValue"
+              @on-change="onChange">
     <slot></slot>
-    </IViewRadio>
+  </IViewRadio>
 </template>
 
 <script>
