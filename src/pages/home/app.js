@@ -1,6 +1,5 @@
 import Vue from 'vue'
-import App from './app.vue'
-Vue.use(require('./common/plugin'))
+import App from './app.vue' 
 
 export const v = new Vue({
   el: '#app',
