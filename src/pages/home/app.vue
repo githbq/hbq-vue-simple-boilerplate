@@ -1,276 +1,29 @@
 <template>
-<div>
-  <!--
-  <fieldset >
-    <legend>
-    ZPSelect2
-    </legend>
-    value5:{{value5}}
-  <ZPSelect2 v-model="value5" />
-  </fieldset> 
-  <fieldset>
-    <legend>page</legend>
-    <Page :page-size="20" :total="1000" :showSizer="true"/>
-  </fieldset>
-  <hr/>
-  <DatePicker v-model="abc" type="month"></DatePicker>
-  abc:{{abc}}
-  <hr/>
-  <ZPInput v-model="inputValue" class="fffffffffff"/>
-  inputValue:{{inputValue}}
-  <hr/>
-  <ZPSelect :multiple="false" key-field="value" v-model="selectValue" :data="items" />
-  <hr/>
-  <Cascader size="large" v-model="cascaderValue" :data="cascaderData"></Cascader> 
-  <hr/>
-  <button @click="showMessage">show message</button>
-  <hr/>
-  <Dropdown style="border:2px solid red;margin-left:50px;" :visible="dropdownVisible" :data="dropdownData" trigger="custom">
-    <div @click="dropdownVisible=true">你好111111111111111</div> 
-    <div slot="content">
-      <div style="border:2px solid red;width:500px;height:500px;"> how are you  </div>
-      <button @click="closeDropdown"> dropdownVisible:{{dropdownVisible}} </button>
-    </div> 
-  </Dropdown>
-
-  <hr/>
-  <fieldset >
-    <legend>
-    SelectCascader
-    </legend>
-    <SelectCascader :config="selectCascaderConfig"/> 
-  </fieldset> 
-  <hr/>
-  <AutoComplete v-model="inputValue" />
-  <hr/>
-  <button @click="testNotice">testNotice</button>
-  <hr/>
-  <fieldset >
-    <legend>
-    Upload
-    </legend>
-    <upload>文件上传</upload>
-  </fieldset> 
-  <fieldset >
-    <legend>
-    Circle
-    </legend>
-    <zpCircle :percent="80">
-          <span class="demo-Circle-inner" style="font-size:24px">80%</span>
-      </zpCircle>
-  </fieldset> 
-  <fieldset >
-    <legend>
-    AutoComplete
-    </legend>
-    value2:{{value2}}
-  <AutoComplete
-          v-model="value2"
-          @on-search="handleSearch2"
-          placeholder="input here"
-          style="width:200px"> 
-          <ul v-if="data2&&data2.length===0" class="zpfe-iview-select-not-found"><li>无匹配数据</li></ul>
-          <zpOption v-for="(item,index) in data2" :label="item.label" :value="item.value" :key="index">{{ item.label }}</zpOption>
-      </AutoComplete>
-      data2:{{data2}}
-  </fieldset> 
-  <fieldset >
-    <legend>
-    zp-input
-    </legend>
-    value3:{{value3}}
-  <ZPInput type="textarea" v-model="value3" />
-  </fieldset> 
-  <fieldset >
-    <legend>
-    zp-rate
-    </legend>
-    value4:{{value4}}
-  <Rate v-model="value4" />
-  </fieldset> 
-   -->
-<fieldset >
-  <legend>
-  轮播图 
-  </legend>
-  <Carousel autoplay v-model="carouselValue" loop>
-        <CarouselItem>
-            <div class="demo-carousel">1</div>
-        </CarouselItem>
-        <CarouselItem>
-            <div class="demo-carousel">2</div>
-        </CarouselItem>
-        <CarouselItem>
-            <div class="demo-carousel">3</div>
-        </CarouselItem>
-        <CarouselItem>
-            <div class="demo-carousel">4</div>
-        </CarouselItem>
-    </Carousel>
-</fieldset> 
+<div class="my-form">  
+    <MyForm></MyForm>
 </div>
 </template>
 
 <script>
-import ZPSelect2 from './components/zp-select'
-import { Carousel, CarouselItem } from './common/carousel'
-import { Rate, Circle as zpCircle, Upload, Page, AutoComplete, SelectCascader, Cascader, Select as ZPSelect, DatePicker, Input as ZPInput, Dropdown } from './common'
-import Dropdown2 from 'iview/src/components/dropdown'
-import { Option as zpOption } from './common/auto-complete'
+import MyForm from './components/form'
 export default {
   components: {
-    ...{},
-    CarouselItem,
-    Carousel,
-    ZPSelect2,
-    Rate,
-    ZPInput,
-    zpOption,
-    zpCircle,
-    Upload,
-    Page,
-    AutoComplete,
-    SelectCascader,
-    DropdownMenu: Dropdown2.Menu,
-    Dropdown,
-    Cascader,
-    DatePicker,
-    ZPInput,
-    ZPSelect
+    MyForm
   },
   data() {
-    return {
-      carouselValue: 2,
-      value5: 'b',
-      value4: 4,
-      value3: '555',
-      value2: '23312',
-      data2: [],
-      abc: null,
-      selectCascaderConfig: [
-        {
-          value: 'a1v_0',
-          label: '省111',
-          placeholder: '请选择省',
-          data: [
-            // { label: 'a' + Math.random(), value: 'a1v_' + 0 }
-          ]
-
-        },
-        {
-          value: 'a1v_1',
-          placeholder: '请选择市',
-          label: '市22',
-          data: []
-        },
-        {
-          value: 'a1v_2',
-          placeholder: '请选择区',
-          label: '区33',
-          data: []
-        },
-        {
-          value: 'a1v_3',
-          placeholder: '请选择村',
-          label: '村44',
-          data: []
-        }
-      ],
-      dropdownData: [{ name: '111', label: 'AAA' }],
-      dropdownVisible: false,
-      abc: 1441036800000,
-      cascaderValue: [],
-      inputValue: 'inputValue',
-      selectValue: 'New York',
-      cascaderData: [
-        {
-          value: 'zhejiang',
-          label: '浙江',
-          children: [{
-            value: 'hangzhou',
-            label: '杭州',
-            children: [{
-              value: 'xihu',
-              label: '西湖'
-            }]
-          }]
-        }
-      ],
-      items: [
-        {
-          value: 'New York',
-          label: 'New York'
-        },
-        {
-          value: 'London',
-          label: 'London'
-        },
-        {
-          value: 'Sydney',
-          label: 'Sydney'
-        },
-        {
-          value: 'Ottawa',
-          label: 'Ottawa'
-        },
-        {
-          value: 'Paris',
-          label: 'Paris'
-        },
-        {
-          value: 'Canberra',
-          label: 'Canberra'
-        }
-      ]
-    }
+    return {}
   },
-  methods: {
-    handleSearch2(value) {
-      this.data2 = !value || value.indexOf('@') >= 0 ? [] : [
-        { value: value + '@qq.com', label: value + '@qq.com' },
-        { value: value + '@sina.com', label: value + '@sina.com' },
-        { value: value + '@163.com', label: value + '@163.com' }
-      ];
-    },
-    testNotice() {
-      this.$Notice.success({
-        title: 'Notification title',
-        desc: 'This notification does not automatically close, and you need to click the close button to close.',
-        duration: 0
-      });
-    },
-    closeDropdown() {
-      this.dropdownVisible = !this.dropdownVisible
-    },
-    login() {
-      this.$refs.ruleForm.validate((valid) => {
-        if (!valid) {
-          return
-        }
-        location.assign('../user/index.html')
-      })
-    },
-    showMessage() {
-      this.$Message.info('This is a info tip')
-    }
-  }
-}
+  methods: {}
+};
 </script>
 
-<style>
-.login-card {
-  width: 800px;
-  margin: 100px auto;
-}
-.login {
-  display: block;
-  width: 400px;
-  margin: 100px auto;
-}
-.logo-img {
-  width: 90px;
-}
-.logo-text {
-  margin-left: 20px;
+<style lang="less">
+.my-form {
+  * {
+    box-sizing: border-box;
+  }
+  & {
+    border: 1px solid red;
+  }
 }
 </style>
