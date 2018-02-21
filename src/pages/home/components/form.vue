@@ -1,21 +1,58 @@
 <template>
-    <div class="my-form">
-         form
-    </div>
+  <div class="my-form">
+    <div class="form-item" v-for="(n,i) in options" :key="i">
+      <!-- 表单项的头部文本 -->
+      <label class="form-item-header" :class="n.headerClass">{{n.label}}</label>
+      <!-- 多行文本框 -->
+      <textarea  :class="n.class" v-if="n.type==='textarea'" :value="n.value"></textarea>
+      <!-- 多选框 -->
+      <label :class="n.labelItemClass"  v-else-if="n.type==='checkbox'" v-for="(item,index) in n.items" :key="index"> 
+        {{item.label}}
+        <input type="checkbox" :class="n.class"  :value="item.value" v-model="n.value"/>
+      </label>
+      <!-- 单选框 -->
+       <label :class="n.labelItemClass" v-else-if="n.type==='radio'" v-for="(item,index) in n.items" :key="index"> 
+        {{item.label}}
+        <input type="radio" :class="n.class"  :value="item.value" v-model="n.value"/>
+      </label>
+      <!-- 默认为普通输入框 -->
+      <input v-else type="text" :class="n.class"  :value="n.value" @input="onInput($event,n)" />
+    </div>  
+    <br/>
+    {{options}}
+  </div>
 </template>
 <script>
 export default {
-    props: {
-    },
-    data() {
-        return {
+  props: {},
+  data() {
+    return {
+      options: [
+        { label: "年龄", name: "age", value: 18 },
+        {
+          label: "爱好",
+          name: "hobby",
+          type:'checkbox',
+          value: ["play"],
+          items: [{ label: "唱歌", value: "sing" },{ label: "玩", value: "play" }]
+        },
+        {
+          label: "性别",
+          name: "sex",
+          type:'radio',
+          value: "1",
+          items: [{ label: "男", value: "1" },{ label: "女", value: "0" }]
         }
-    },
-    watch: { 
-    },
-    methods: {
-    } 
-}
+      ]
+    };
+  },
+  watch: {},
+  methods: {
+    onInput(e, option) {
+      option.value = e.target.value;
+    }
+  }
+};
 </script>
 
 <style lang="scss" >
