@@ -17,6 +17,10 @@
       </label>
       <!-- 默认为普通输入框 -->
       <input v-else type="text" :class="n.class"  :value="n.value" @input="onInput($event,n)" />
+      <!-- 提示信息 -->
+      <span v-if="n.tipInfo" class="form-item-message-tip"></span>
+      <!-- 验证信息 -->
+      <span v-if="n.validateInfo" class="form-item-message-validate" :class="{valid:!n.invalid,invalid:n.invalid}"></span>
     </div>  
     <br/>
     {{options}}
