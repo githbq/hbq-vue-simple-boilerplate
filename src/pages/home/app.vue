@@ -1,5 +1,6 @@
 <template>
 <div>
+    <ZPSelect @on-change="selectChange" :multiple="false" key-field="value" v-model="selectValue" :data="items" />
   <!--
   <fieldset >
     <legend>
@@ -181,7 +182,7 @@ export default {
       abc: 1441036800000,
       cascaderValue: [],
       inputValue: 'inputValue',
-      selectValue: 'New York',
+      selectValue: '',
       cascaderData: [
         {
           value: 'zhejiang',
@@ -252,6 +253,9 @@ export default {
     },
     showMessage() {
       this.$Message.info('This is a info tip')
+    },
+    selectChange(){
+      console.log(Math.random())
     }
   }
 }
