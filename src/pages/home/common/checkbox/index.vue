@@ -1,16 +1,16 @@
-<template>  
-    <IViewCheckbox 
+<template>
+  <IViewCheckbox
     onselectstart="return false"
-     class="zpfe-iview-checkbox"
-    v-model="self_value" 
-    :label="label" 
-    :disabled="disabled" 
-    :indeterminate="indeterminate" 
-    :size="size" 
-    :trueValue="trueValue" 
-    :falseValue="falseValue" 
+    class="zpfe-iview-checkbox"
+    v-model="self_value"
+    :label="label"
+    :disabled="disabled"
+    :indeterminate="indeterminate"
+    :size="size"
+    :trueValue="trueValue"
+    :falseValue="falseValue"
     @on-change="onChange"
-    >
+  >
     <slot></slot>
     </IViewCheckbox>
 </template>
@@ -30,19 +30,19 @@ export default {
     trueValue: { default: true },
     falseValue: { default: false }
   },
-  data () {
+  data() {
     return { self_value: this.$props.value }
   },
   watch: {
-    value (newValue) {
+    value(newValue) {
       this.$data.self_value = newValue
     },
-    self_value (newValue) {
+    self_value(newValue) {
       this.$emit('input', newValue)
     }
   },
   methods: {
-    onChange () {
+    onChange() {
       const args = [].slice.call(arguments)
       this.$emit.apply(this, ['on-change'].concat(args))
     },
