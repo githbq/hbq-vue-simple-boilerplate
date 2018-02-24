@@ -9,6 +9,7 @@
     :size="size" 
     :trueValue="trueValue" 
     :falseValue="falseValue" 
+    @on-change="onChange"
     >
     <slot></slot>
     </IViewCheckbox>
@@ -41,7 +42,10 @@ export default {
     }
   },
   methods: {
-
+    onChange () {
+      const args = [].slice.call(arguments)
+      this.$emit.apply(this, ['on-change'].concat(args))
+    },
   }
 }
 </script>
