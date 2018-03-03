@@ -70,12 +70,21 @@
   </div>
 </template>
 <script>
+import debounce from 'lodash.debounce'
 export default {
   props: {},
   data () {
     return {
       validateResult: '',
       formData: {},
+      base: {
+        validate () {
+          if (this.validate && !this.validate()) {
+            this.invalid = true
+            this.invalidInfo = '验证不通过'
+          }
+        }
+      },
       options: [
         {
           label: '年龄', name: 'age', value: 18,
@@ -144,10 +153,14 @@ export default {
         return true
       }
     },
-    change (e, option) {
+    change: debounce(function (e, option) {
       option.invalid = false
       option.invalidInfo = null
-    }
+      if (option.validate && !option.validate()) {
+        option.invalid = true
+        option.invalidInfo = '验证不通过'
+      }
+    }, 50)
   }
 };
 </script>
