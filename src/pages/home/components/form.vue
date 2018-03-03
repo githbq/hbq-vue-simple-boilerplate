@@ -1,97 +1,195 @@
 <template>
   <div class="my-form">
-    <div class="form-item" v-for="(n,i) in options" :key="i">
+    <div class="form-item"
+         v-for="(n,i) in options"
+         :key="i"
+         :class="{valid:!n.invalid,invalid:n.invalid}">
       <!-- 表单项的头部文本 -->
-      <label class="form-item-header" :class="n.headerClass">{{n.label}}</label>
+      <label class="form-item-left"
+             :class="n.headerClass">{{n.label}}:</label>
       <!-- 多行文本框 -->
-      <textarea  :class="n.class" v-if="n.type==='textarea'" :value="n.value"></textarea>
+      <div v-if="n.type==='textarea'"
+           class="form-item-middle">
+        <textarea :class="n.class"
+                  :value="n.value"
+                  @change="change($event,n)"></textarea>
+      </div>
       <!-- 多选框 -->
-      <label :class="n.labelItemClass"  v-else-if="n.type==='checkbox'" v-for="(item,index) in n.items" :key="index"> 
-        {{item.label}}
-        <input type="checkbox" :class="n.class"  :value="item.value" v-model="n.value"/>
-      </label>
+      <div v-else-if="n.type==='checkbox'"
+           class="form-item-middle">
+        <label :class="n.labelItemClass"
+               v-for="(item,index) in n.items"
+               :key="index">
+          <input type="checkbox"
+                 :class="n.class"
+                 :value="item.value"
+                 v-model="n.value"
+                 @change="change($event,n)" />
+          <span class="form-item-radio-text">{{item.label}}</span>
+        </label>
+      </div>
       <!-- 单选框 -->
-       <label :class="n.labelItemClass" v-else-if="n.type==='radio'" v-for="(item,index) in n.items" :key="index"> 
-        {{item.label}}
-        <input type="radio" :class="n.class"  :value="item.value" v-model="n.value"/>
-      </label>
+      <div v-else-if="n.type==='radio'"
+           class="form-item-middle">
+        <label :class="n.labelItemClass"
+               v-for="(item,index) in n.items"
+               :key="index">
+          <input type="radio"
+                 :class="n.class"
+                 :value="item.value"
+                 v-model="n.value"
+                 @change="change($event,n)" />
+          <span class="form-item-radio-text">{{item.label}}</span>
+        </label>
+      </div>
       <!-- 默认为普通输入框 -->
-      <input v-else type="text" :class="n.class"  :value="n.value" @input="onInput($event,n)" />
-      <!-- 提示信息 -->
-      <span v-if="n.tipInfo" class="form-item-message-tip"></span>
-      <!-- 验证信息 -->
-      <span v-if="n.validateInfo" class="form-item-message-validate" :class="{valid:!n.invalid,invalid:n.invalid}"></span>
-    </div>  
+      <div v-else
+           class="form-item-middle">
+        <input type="text"
+               :class="n.class"
+               :value="n.value"
+               @input="onInput($event,n)"
+               @change="change($event,n)" />
+      </div>
+      <div class="form-item-right">
+        <!-- 提示信息 -->
+        <span v-if="n.tipInfo"
+              class="form-item-message_tip"></span>
+        <!-- 验证信息 -->
+        <span v-if="n.invalidInfo"
+              class="form-item-message_invalid">{{n.invalidInfo}}</span>
+      </div>
+    </div>
+    <!-- <br/> options {{options}} -->
+    <br/> 表单验证结果： {{validateResult}}
     <br/>
-    {{options}}
+    <button @click="validate">执行表单验证</button>
+    <br/> 表单数据结果： {{formData}}
+    <br/>
+    <button @click="getFormData">获取表单数据</button>
   </div>
 </template>
 <script>
 export default {
   props: {},
-  data() {
+  data () {
     return {
+      validateResult: '',
+      formData: {},
       options: [
-        { label: "年龄", name: "age", value: 18 },
         {
-          label: "爱好",
-          name: "hobby",
-          type:'checkbox',
-          value: ["play"],
-          items: [{ label: "唱歌", value: "sing" },{ label: "玩", value: "play" }]
+          label: '年龄', name: 'age', value: 18,
+          validate () {
+            return !!this.value
+          },
+          invalid: false,
+          invalidInfo: null,
         },
         {
-          label: "性别",
-          name: "sex",
-          type:'radio',
-          value: "1",
-          items: [{ label: "男", value: "1" },{ label: "女", value: "0" }]
+          label: '爱好',
+          name: 'hobby',
+          type: 'checkbox',
+          value: [],
+          items: [{ label: '唱歌', value: 'sing' }, { label: '玩', value: 'play' }],
+          validate () {
+            return !!this.value.length
+          },
+          invalid: false,
+          invalidInfo: null,
+        },
+        {
+          label: '性别',
+          name: 'sex',
+          type: 'radio',
+          value: '1',
+          items: [{ label: '男', value: '1' }, { label: '女', value: '0' }],
+          validate () {
+            return !!this.value
+          },
+          invalid: false,
+          invalidInfo: null,
         }
       ]
     };
   },
   watch: {},
   methods: {
-    onInput(e, option) {
+    onInput (e, option) {
+      option.invalid = false
+      option.invalidInfo = null
       option.value = e.target.value;
+    },
+    getFormData () {
+      this.formData = {}
+      this.options.forEach(n => {
+        this.formData[n.name] = n.value
+      })
+    },
+    validate () {
+      this.validateResult = ''
+      if (this.options.filter(n => {
+        const validateResult = n.validate && !n.validate()
+        if (validateResult) {
+          n.invalid = true
+          n.invalidInfo = '验证不通过'
+          console.log(n)
+        }
+        return validateResult
+      }).length > 0) {
+        this.validateResult = '验证不通过'
+
+        return false
+      } else {
+        this.validateResult = '验证通过'
+        return true
+      }
+    },
+    change (e, option) {
+      option.invalid = false
+      option.invalidInfo = null
     }
   }
 };
 </script>
 
-<style lang="scss" >
-.zp-i-select {
-  box-sizing: border-box;
-  cursor: pointer;
-  color: #495060;
-  font-size: 14px;
-  line-height: normal;
-  display: inline-block;
-  position: relative;
-  &-label {
-    min-width: 50px;
-    padding-left: 5px;
-    padding-right: 5px;
-    line-height: 30px;
-    border: 1px solid green;
+<style lang='scss' >
+.my-form {
+  button {
+    padding: 10px 15px;
   }
-  &-dropdown {
-    min-width: 50px;
-    box-shadow: 0 1px 6px rgba(0, 0, 0, 0.2);
-    line-height: normal;
-    background-color: #fff;
-    z-index: 99;
-    position: absolute;
-    top: 32px;
-    overflow-x: hidden;
-    overflow-y: auto;
-    max-height: 400px;
+}
+.form-item {
+  padding: 5px;
+  margin: 5px 0px;
+  display: flex;
+  flex-direction: row;
+  .form-item-left {
+    flex: 0 0 80px;
   }
-  &-dropdown-option {
-    padding: 4px;
-    &:hover {
-      background: #f3f3f3;
-    }
+  .form-item-middle {
+    flex: 1;
+  }
+  .form-item-right {
+    flex: 0 0 100px;
+  }
+  .form-item-message_invalid {
+    margin-left: 20px;
+    color: red;
+  }
+  // 验证不通过
+  &.invalid {
+    border: 1px solid red;
+  }
+  // 验证通过
+  &.valid {
+    // border: 1px solid green;
+  }
+  // 用户未输入
+  &.pristine {
+    border: none;
+  }
+  // 用户已输入
+  &.dirty {
   }
 }
 </style>

@@ -1,7 +1,7 @@
 <template>
-<div class="my-form">  
+  <div>
     <MyForm></MyForm>
-</div>
+  </div>
 </template>
 
 <script>
@@ -10,7 +10,7 @@ export default {
   components: {
     MyForm
   },
-  data() {
+  data () {
     return {}
   },
   methods: {}
@@ -23,7 +23,8 @@ export default {
     box-sizing: border-box;
   }
   & {
-    border: 1px solid red;
+    border: 2px solid gray;
+    padding: 5px;
   }
 }
 </style>
